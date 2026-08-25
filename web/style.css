@@ -68,7 +68,16 @@ html, body {
 #app {
   display: grid;
   grid-template-columns: 380px 1fr;
+  /* One explicit row, or the row sizes to its content.  On a desktop the tall
+     panel propped it up by accident; take the panel out of flow - as the phone
+     drawer does - and the map collapses to whatever the SVG last happened to
+     be, which measured 307px of a 667px screen. */
+  grid-template-rows: minmax(0, 1fr);
+  /* 100vh on a phone means "the viewport with the address bar hidden", so the
+     bottom of the layout sits behind the browser chrome until you scroll.
+     Dynamic viewport height is the honest measure; vh stays as the fallback. */
   height: 100vh;
+  height: 100dvh;
 }
 
 /* ---------- side panel ---------- */
@@ -79,6 +88,9 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  /* A grid item is min-width:auto by default, so it refuses to shrink below
+     its content and overflows the zero-width column instead of collapsing. */
+  min-width: 0;
 }
 
 #panel header {
@@ -283,7 +295,22 @@ button.ghost {
 
 /* ---------- map ---------- */
 
-#map { position: relative; background: var(--sea); overflow: hidden; }
+/* Out of flow at every width.  Left in flow it becomes a second grid row and
+   takes half the map with it - which is exactly what it did. */
+#scrim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 19;
+  background: rgba(0, 0, 0, 0.35);
+  transition: opacity 0.22s ease;
+}
+
+#map { position: relative; background: var(--sea); overflow: hidden; min-height: 0; }
+
+/* The SVG tracks its container rather than its own intrinsic size, so the map
+   is never the thing deciding how tall the map is. */
+#map > svg { display: block; width: 100%; height: 100%; }
 #map svg { display: block; width: 100%; height: 100%; cursor: grab; }
 #map svg:active { cursor: grabbing; }
 
@@ -433,9 +460,13 @@ button.ghost {
   cursor: pointer;
 }
 
-@media (max-width: 860px) {
-  #app { grid-template-columns: 1fr; grid-template-rows: 46vh 54vh; }
-  #panel { border-right: 0; border-bottom: 1px solid var(--line); }
+/* Tablets and small laptops still have room for both, but not for a 380px
+   column, so the panel narrows.  (An earlier version stacked the map above the
+   panel here, 46vh/54vh.  That letterboxed the map on a tablet, and once the
+   phone drawer took the panel out of flow it left the map filling 46vh of an
+   otherwise empty screen - the two layouts were fighting each other.) */
+@media (max-width: 1000px) {
+  #app { grid-template-columns: 320px 1fr; }
 }
 
 #attribution {
@@ -571,8 +602,8 @@ button.icon:hover { color: var(--ink); border-color: var(--ink-faint); }
 /* Zoom moves out from under the card. */
 #zoom { left: 14px; right: auto; }
 
-@media (max-width: 860px) {
-  #pip { width: auto; left: 14px; right: 14px; }
+@media (max-width: 1000px) {
+  #pip { width: 320px; }
 }
 
 /* ---------- the E-road plate ----------
@@ -630,3 +661,111 @@ button.icon:hover { color: var(--ink); border-color: var(--ink-faint); }
    is given a pointer target wider than the 2px stroke so it can be hit. */
 .route-line.hoverable { pointer-events: stroke; stroke-linecap: round; }
 .leg.lit { background: var(--bg); box-shadow: inset 2px 0 0 var(--focus); }
+
+/* ======================================================================
+   Phones
+   ----------------------------------------------------------------------
+   A 380px sidebar beside a map does not survive a 390px screen: it left
+   about ten pixels of Europe.  Below this width the two stop sharing the
+   viewport and start taking turns - the map holds it, and the controls and
+   the plan come over the top of it as a drawer and a sheet, which is how a
+   phone expects to be given a second panel.
+   ====================================================================== */
+
+@media (max-width: 760px) {
+  /* The map takes the whole viewport; the panel floats above it. */
+  #app { grid-template-columns: 1fr; }
+
+  #panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(88vw, 340px);
+    z-index: 20;
+    transition: transform 0.22s ease;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.28);
+  }
+  #app.panel-collapsed #panel { transform: translateX(-100%); }
+
+  /* The grid no longer collapses a column, so undo the desktop mechanism. */
+  #app.panel-collapsed { grid-template-columns: 1fr; }
+
+  /* Tapping the map behind an open drawer should close it. */
+  #scrim { display: block; }
+  #app.panel-collapsed #scrim { opacity: 0; pointer-events: none; }
+
+  /* The drawer tab has to clear the drawer itself when it is open. */
+  #panel-show { display: flex; }
+  #app:not(.panel-collapsed) #panel-show { opacity: 0; pointer-events: none; }
+
+  /* The plan becomes a bottom sheet.  Dragging a card around a phone screen
+     is not a gesture anyone wants, so it is anchored instead. */
+  #pip {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-width: none;
+    max-height: 56dvh;
+    border-radius: 16px 16px 0 0;
+    border-bottom: 0;
+    box-shadow: 0 -8px 34px rgba(0, 0, 0, 0.22);
+  }
+  .pip-bar { cursor: default; padding: 12px 10px 12px 16px; }
+  /* A grabber, so the sheet reads as one. */
+  .pip-bar::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--line);
+  }
+  #pip.pip-folded { max-height: none; }
+
+  /* Keep the zoom controls off the sheet, at a thumb-sized target. */
+  #zoom { top: auto; bottom: 12px; left: 12px; }
+  #zoom button { width: 44px; height: 44px; font-size: 19px; }
+  #status, #attribution { display: none; }
+
+  /* Touch targets. Anything tappable wants ~44px. */
+  #panel-show { width: 26px; height: 72px; }
+  .icon { min-width: 40px; min-height: 40px; }
+  .leg { padding: 12px 13px; }
+  input[type="search"] { font-size: 16px; }   /* under 16px iOS zooms the page */
+  .suggestions div, .suggestions button { padding: 12px 13px; }
+  .toggles label, .legend label { padding: 7px 0; }
+}
+
+/* Very narrow phones: give the sheet more of the screen. */
+@media (max-width: 400px) {
+  #pip { max-height: 62dvh; }
+  #panel { width: 92vw; }
+}
+
+/* A landscape phone is short, not narrow, so the scarce axis is the vertical
+   one - and a bottom sheet spends exactly that.  At 720x360 it took 78% of the
+   screen and left a strip of map.  Here the plan goes back to being a column
+   at the side, where the room actually is. */
+@media (max-height: 520px) and (max-width: 900px) {
+  #pip {
+    top: 8px;
+    bottom: 8px;
+    left: auto;
+    right: 8px;
+    width: min(46vw, 340px);
+    max-height: none;
+    border-radius: 12px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.22);
+  }
+  #pip.pip-folded { bottom: auto; }
+  .pip-bar::before { display: none; }   /* a column, not a sheet to drag */
+  #zoom { bottom: auto; top: 8px; left: 8px; }
+  #zoom button { width: 38px; height: 38px; }
+}

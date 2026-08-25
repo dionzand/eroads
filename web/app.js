@@ -648,22 +648,71 @@ function wireZoom(svg, root, width, height) {
            (event.clientY - box.top) * scaleY);
   }, { passive: false });
 
+  /* One finger pans, two fingers pinch.  The wheel handler above covers a
+     mouse, but a phone has no wheel, and without this the only way to zoom
+     was the +/- buttons - which is not what anyone tries first on a map.
+     `touch-action: none` is what stops the browser panning the page instead
+     of the map when the gesture starts. */
+  svg.style.touchAction = "none";
+  const pointers = new Map();
+  let pinchDistance = 0;
+
+  const spread = () => {
+    const [a, b] = [...pointers.values()];
+    return Math.hypot(a.x - b.x, a.y - b.y);
+  };
+
   svg.addEventListener("pointerdown", (event) => {
-    dragging = true;
-    lastX = event.clientX;
-    lastY = event.clientY;
-    svg.setPointerCapture(event.pointerId);
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pointers.size === 2) {
+      pinchDistance = spread();
+      dragging = false;             // the pan is now a pinch
+    } else if (pointers.size === 1) {
+      dragging = true;
+      lastX = event.clientX;
+      lastY = event.clientY;
+      svg.setPointerCapture(event.pointerId);
+    }
   });
+
   svg.addEventListener("pointermove", (event) => {
-    if (!dragging) return;
+    if (!pointers.has(event.pointerId)) return;
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     const box = svg.getBoundingClientRect();
+
+    if (pointers.size === 2) {
+      const now = spread();
+      if (pinchDistance > 0 && now > 0) {
+        const [a, b] = [...pointers.values()];
+        zoomAt(now / pinchDistance,
+               ((a.x + b.x) / 2 - box.left) * (width / box.width),
+               ((a.y + b.y) / 2 - box.top) * (height / box.height));
+      }
+      pinchDistance = now;
+      return;
+    }
+
+    if (!dragging) return;
     state.view.x += (event.clientX - lastX) * (width / box.width);
     state.view.y += (event.clientY - lastY) * (height / box.height);
     lastX = event.clientX;
     lastY = event.clientY;
     applyView();
   });
-  const stop = () => { dragging = false; };
+
+  const stop = (event) => {
+    pointers.delete(event.pointerId);
+    if (pointers.size < 2) pinchDistance = 0;
+    if (pointers.size === 1) {
+      /* A finger lifted out of a pinch - carry on panning with the one left,
+         rather than jumping when it next moves. */
+      const [only] = [...pointers.values()];
+      lastX = only.x;
+      lastY = only.y;
+      dragging = true;
+    }
+    if (pointers.size === 0) dragging = false;
+  };
   svg.addEventListener("pointerup", stop);
   svg.addEventListener("pointercancel", stop);
 
@@ -889,6 +938,7 @@ function wirePipDrag() {
 
   bar.addEventListener("pointerdown", (event) => {
     if (event.target.closest("button")) return;
+    if (onPhone()) return;          // it is a docked sheet, not a floating card
     const box = pip.getBoundingClientRect();
     const map = el("map").getBoundingClientRect();
     pip.style.left = (box.left - map.left) + "px";
@@ -932,8 +982,15 @@ function clamp(value, low, high) {
   return value < low ? low : value > high ? high : value;
 }
 
+/* Below this width the panel stops being a column beside the map and becomes
+   a drawer over it, and the plan card becomes a bottom sheet. */
+const PHONE = "(max-width: 760px)";
+const onPhone = () => window.matchMedia(PHONE).matches;
+
 /* Collapsing changes the width of the map, and the map is rebuilt at its
-   pixel size, so the existing resize path has to run afterwards. */
+   pixel size, so the existing resize path has to run afterwards.  On a phone
+   the panel floats over the map instead of taking a column from it, so the
+   map's size is unchanged and there is nothing to rebuild. */
 function setPanelCollapsed(collapsed) {
   const app = el("app");
   app.classList.toggle("panel-collapsed", collapsed);
@@ -941,16 +998,47 @@ function setPanelCollapsed(collapsed) {
   el("panel-show").setAttribute("aria-expanded", collapsed ? "false" : "true");
   try { localStorage.setItem("eroads:panel", collapsed ? "closed" : "open"); }
   catch (ignored) { /* private mode; the preference simply will not persist */ }
-  setTimeout(() => window.dispatchEvent(new Event("resize")), 200);
+  if (!onPhone()) setTimeout(() => window.dispatchEvent(new Event("resize")), 200);
 }
 
 function wirePanelToggle() {
   let start = null;
   try { start = localStorage.getItem("eroads:panel"); }
   catch (ignored) { /* nothing stored, nothing to honour */ }
-  if (start === "closed") el("app").classList.add("panel-collapsed");
+  /* On a phone the drawer covers the map, so it starts out of the way unless
+     the reader has said otherwise.  On a desktop it starts open. */
+  if (start === "closed" || (start === null && onPhone())) {
+    el("app").classList.add("panel-collapsed");
+  }
   el("panel-hide").addEventListener("click", () => setPanelCollapsed(true));
   el("panel-show").addEventListener("click", () => setPanelCollapsed(false));
+
+  /* Tapping the map behind an open drawer closes it, which is what the dimmed
+     backdrop invites you to do. */
+  const scrim = document.createElement("div");
+  scrim.id = "scrim";
+  scrim.addEventListener("click", () => setPanelCollapsed(true));
+  el("app").appendChild(scrim);
+
+  /* Planning from the drawer should hand the map back straight away. */
+  for (const id of ["plan", "shuffle", "swap"]) {
+    el(id).addEventListener("click", () => {
+      if (onPhone()) setPanelCollapsed(true);
+    });
+  }
+
+  /* Rotating a phone, or crossing the breakpoint on a desktop, leaves the
+     sheet carrying pixel offsets from a drag that no longer applies. */
+  window.matchMedia(PHONE).addEventListener("change", releaseSheet);
+}
+
+/* Dragging positions the card with inline left/top.  Those must be cleared
+   when it becomes a docked sheet, or it sits wherever it was last dropped. */
+function releaseSheet() {
+  const pip = el("pip");
+  pip.style.left = "";
+  pip.style.top = "";
+  pip.style.right = "";
 }
 
 function wireControls() {
