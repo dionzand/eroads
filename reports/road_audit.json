@@ -1,0 +1,3991 @@
+[
+ {
+  "road": "E001",
+  "display": "E001",
+  "pieces": 1,
+  "sizes": [
+   1547
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E002",
+  "display": "E002",
+  "pieces": 1,
+  "sizes": [
+   62
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E01",
+  "display": "E1",
+  "pieces": 2,
+  "sizes": [
+   38179,
+   14521
+  ],
+  "gaps": [
+   {
+    "metres": 981587.9,
+    "kind": "sea",
+    "from_country": "IE",
+    "to_country": "ES",
+    "lat": 52.2452,
+    "lon": -6.3949,
+    "nodes": 14521
+   }
+  ]
+ },
+ {
+  "road": "E03",
+  "display": "E3",
+  "pieces": 1,
+  "sizes": [
+   24431
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E04",
+  "display": "E4",
+  "pieces": 1,
+  "sizes": [
+   52690
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E05",
+  "display": "E5",
+  "pieces": 21,
+  "sizes": [
+   89304,
+   27146,
+   204,
+   132,
+   102,
+   100
+  ],
+  "gaps": [
+   {
+    "metres": 195832.5,
+    "kind": "ferry",
+    "from_country": "GB",
+    "to_country": "FR",
+    "lat": 50.9616,
+    "lon": -1.3908,
+    "nodes": 27146
+   },
+   {
+    "metres": 28151.1,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.3112,
+    "lon": -5.2609,
+    "nodes": 204
+   },
+   {
+    "metres": 32865.2,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.3491,
+    "lon": -5.2357,
+    "nodes": 132
+   },
+   {
+    "metres": 6075.3,
+    "kind": "defect",
+    "from_country": "FR",
+    "to_country": "FR",
+    "lat": 48.773,
+    "lon": 2.229,
+    "nodes": 102
+   },
+   {
+    "metres": 36737.3,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.3808,
+    "lon": -5.2163,
+    "nodes": 100
+   },
+   {
+    "metres": 25701.4,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.297,
+    "lon": -5.2828,
+    "nodes": 97
+   },
+   {
+    "metres": 38531.3,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.3929,
+    "lon": -5.2029,
+    "nodes": 92
+   },
+   {
+    "metres": 25828.1,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.2963,
+    "lon": -5.2794,
+    "nodes": 86
+   },
+   {
+    "metres": 40644.8,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.4078,
+    "lon": -5.1881,
+    "nodes": 78
+   },
+   {
+    "metres": 38539.4,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.393,
+    "lon": -5.203,
+    "nodes": 75
+   },
+   {
+    "metres": 35409.8,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.3717,
+    "lon": -5.226,
+    "nodes": 72
+   },
+   {
+    "metres": 572.7,
+    "kind": "defect",
+    "from_country": "FR",
+    "to_country": "FR",
+    "lat": 49.4851,
+    "lon": 0.1142,
+    "nodes": 47
+   },
+   {
+    "metres": 36721.2,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.3806,
+    "lon": -5.2162,
+    "nodes": 46
+   },
+   {
+    "metres": 30011.8,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.3221,
+    "lon": -5.2446,
+    "nodes": 46
+   },
+   {
+    "metres": 31277.7,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.334,
+    "lon": -5.2404,
+    "nodes": 37
+   },
+   {
+    "metres": 42090.6,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.4175,
+    "lon": -5.1774,
+    "nodes": 35
+   },
+   {
+    "metres": 31266.7,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.334,
+    "lon": -5.2406,
+    "nodes": 13
+   },
+   {
+    "metres": 25680.2,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.2968,
+    "lon": -5.283,
+    "nodes": 12
+   },
+   {
+    "metres": 40077.6,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.4045,
+    "lon": -5.1933,
+    "nodes": 11
+   },
+   {
+    "metres": 40084.0,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 36.4046,
+    "lon": -5.1935,
+    "nodes": 7
+   }
+  ]
+ },
+ {
+  "road": "E06",
+  "display": "E6",
+  "pieces": 2,
+  "sizes": [
+   111777,
+   10
+  ],
+  "gaps": [
+   {
+    "metres": 2309.5,
+    "kind": "defect",
+    "from_country": "NO",
+    "to_country": "NO",
+    "lat": 60.1676,
+    "lon": 11.1146,
+    "nodes": 10
+   }
+  ]
+ },
+ {
+  "road": "E07",
+  "display": "E7",
+  "pieces": 1,
+  "sizes": [
+   18438
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E08",
+  "display": "E8",
+  "pieces": 1,
+  "sizes": [
+   26180
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E09",
+  "display": "E9",
+  "pieces": 1,
+  "sizes": [
+   34130
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E10",
+  "display": "E10",
+  "pieces": 1,
+  "sizes": [
+   12985
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E101",
+  "display": "E101",
+  "pieces": 1,
+  "sizes": [
+   8262
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E105",
+  "display": "E105",
+  "pieces": 2,
+  "sizes": [
+   44716,
+   4484
+  ],
+  "gaps": [
+   {
+    "metres": 14255.6,
+    "kind": "defect",
+    "from_country": "UA",
+    "to_country": "UA",
+    "lat": 47.4479,
+    "lon": 35.2849,
+    "nodes": 4484
+   }
+  ]
+ },
+ {
+  "road": "E11",
+  "display": "E11",
+  "pieces": 1,
+  "sizes": [
+   21780
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E115",
+  "display": "E115",
+  "pieces": 1,
+  "sizes": [
+   37266
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E117",
+  "display": "E117",
+  "pieces": 1,
+  "sizes": [
+   11652
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E119",
+  "display": "E119",
+  "pieces": 1,
+  "sizes": [
+   11825
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E12",
+  "display": "E12",
+  "pieces": 1,
+  "sizes": [
+   21161
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E127",
+  "display": "E127",
+  "pieces": 2,
+  "sizes": [
+   49,
+   23
+  ],
+  "gaps": [
+   {
+    "metres": 1370.4,
+    "kind": "defect",
+    "from_country": "CY",
+    "to_country": "CY",
+    "lat": 34.7111,
+    "lon": 33.0877,
+    "nodes": 23
+   }
+  ]
+ },
+ {
+  "road": "E13",
+  "display": "E13",
+  "pieces": 1,
+  "sizes": [
+   6759
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E134",
+  "display": "E134",
+  "pieces": 2,
+  "sizes": [
+   18644,
+   1897
+  ],
+  "gaps": [
+   {
+    "metres": 4782.2,
+    "kind": "defect",
+    "from_country": "NO",
+    "to_country": "NO",
+    "lat": 59.4205,
+    "lon": 5.4486,
+    "nodes": 1897
+   }
+  ]
+ },
+ {
+  "road": "E136",
+  "display": "E136",
+  "pieces": 1,
+  "sizes": [
+   7089
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E14",
+  "display": "E14",
+  "pieces": 1,
+  "sizes": [
+   8423
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E15",
+  "display": "E15",
+  "pieces": 8,
+  "sizes": [
+   107174,
+   29760,
+   9447,
+   21,
+   12,
+   6
+  ],
+  "gaps": [
+   {
+    "metres": 201661.0,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "FR",
+    "lat": 52.1934,
+    "lon": -0.2986,
+    "nodes": 29760
+   },
+   {
+    "metres": 53562.1,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "FR",
+    "lat": 51.0918,
+    "lon": 1.0808,
+    "nodes": 9447
+   },
+   {
+    "metres": 39464.7,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "FR",
+    "lat": 51.1255,
+    "lon": 1.3276,
+    "nodes": 21
+   },
+   {
+    "metres": 39734.0,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "FR",
+    "lat": 51.1253,
+    "lon": 1.3229,
+    "nodes": 12
+   },
+   {
+    "metres": 807938.2,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "FR",
+    "lat": 57.3619,
+    "lon": -4.0109,
+    "nodes": 6
+   },
+   {
+    "metres": 39991.5,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "FR",
+    "lat": 51.1251,
+    "lon": 1.3184,
+    "nodes": 5
+   },
+   {
+    "metres": 3925.5,
+    "kind": "defect",
+    "from_country": "FR",
+    "to_country": "FR",
+    "lat": 45.894,
+    "lon": 4.7331,
+    "nodes": 3
+   }
+  ]
+ },
+ {
+  "road": "E16",
+  "display": "E16",
+  "pieces": 5,
+  "sizes": [
+   35241,
+   5848,
+   3199,
+   8,
+   1
+  ],
+  "gaps": [
+   {
+    "metres": 708175.9,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "NO",
+    "lat": 55.9268,
+    "lon": -3.3138,
+    "nodes": 5848
+   },
+   {
+    "metres": 923911.6,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "NO",
+    "lat": 54.6603,
+    "lon": -5.9365,
+    "nodes": 3199
+   },
+   {
+    "metres": 1679.2,
+    "kind": "defect",
+    "from_country": "NO",
+    "to_country": "NO",
+    "lat": 60.236,
+    "lon": 10.3658,
+    "nodes": 8
+   },
+   {
+    "metres": 1191.5,
+    "kind": "defect",
+    "from_country": "NO",
+    "to_country": "NO",
+    "lat": 60.2384,
+    "lon": 10.4009,
+    "nodes": 1
+   }
+  ]
+ },
+ {
+  "road": "E17",
+  "display": "E17",
+  "pieces": 1,
+  "sizes": [
+   20449
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E18",
+  "display": "E18",
+  "pieces": 6,
+  "sizes": [
+   66682,
+   5439,
+   3401,
+   17,
+   9,
+   9
+  ],
+  "gaps": [
+   {
+    "metres": 688021.1,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "NO",
+    "lat": 54.9851,
+    "lon": -1.6947,
+    "nodes": 5439
+   },
+   {
+    "metres": 919524.6,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "NO",
+    "lat": 54.848,
+    "lon": -5.7981,
+    "nodes": 3401
+   },
+   {
+    "metres": 869602.2,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "NO",
+    "lat": 54.9616,
+    "lon": -5.0141,
+    "nodes": 17
+   },
+   {
+    "metres": 4258.0,
+    "kind": "defect",
+    "from_country": "NO",
+    "to_country": "NO",
+    "lat": 58.1418,
+    "lon": 7.9053,
+    "nodes": 9
+   },
+   {
+    "metres": 4267.5,
+    "kind": "defect",
+    "from_country": "NO",
+    "to_country": "NO",
+    "lat": 58.1419,
+    "lon": 7.9051,
+    "nodes": 9
+   }
+  ]
+ },
+ {
+  "road": "E19",
+  "display": "E19",
+  "pieces": 1,
+  "sizes": [
+   29901
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E20",
+  "display": "E20",
+  "pieces": 5,
+  "sizes": [
+   25091,
+   12794,
+   7632,
+   7397,
+   23
+  ],
+  "gaps": [
+   {
+    "metres": 523.8,
+    "kind": "defect",
+    "from_country": "SE",
+    "to_country": "SE",
+    "lat": 58.7476,
+    "lon": 13.9511,
+    "nodes": 12794
+   },
+   {
+    "metres": 593009.5,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "DK",
+    "lat": 53.7466,
+    "lon": -0.284,
+    "nodes": 7632
+   },
+   {
+    "metres": 973559.4,
+    "kind": "sea",
+    "from_country": "IE",
+    "to_country": "DK",
+    "lat": 53.4121,
+    "lon": -6.2262,
+    "nodes": 7397
+   },
+   {
+    "metres": 135167.8,
+    "kind": "defect",
+    "from_country": "SE",
+    "to_country": "SE",
+    "lat": 59.4325,
+    "lon": 15.8948,
+    "nodes": 23
+   }
+  ]
+ },
+ {
+  "road": "E201",
+  "display": "E201",
+  "pieces": 1,
+  "sizes": [
+   4712
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E21",
+  "display": "E21",
+  "pieces": 1,
+  "sizes": [
+   21166
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E22",
+  "display": "E22",
+  "pieces": 4,
+  "sizes": [
+   29810,
+   28081,
+   21069,
+   14307
+  ],
+  "gaps": [
+   {
+    "metres": 592782.6,
+    "kind": "sea",
+    "from_country": "LV",
+    "to_country": "DE",
+    "lat": 57.3991,
+    "lon": 21.5717,
+    "nodes": 28081
+   },
+   {
+    "metres": 101078.7,
+    "kind": "sea",
+    "from_country": "SE",
+    "to_country": "DE",
+    "lat": 55.374,
+    "lon": 13.1369,
+    "nodes": 21069
+   },
+   {
+    "metres": 360105.1,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "NL",
+    "lat": 53.6298,
+    "lon": -0.2509,
+    "nodes": 14307
+   }
+  ]
+ },
+ {
+  "road": "E23",
+  "display": "E23",
+  "pieces": 1,
+  "sizes": [
+   23958
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E231",
+  "display": "E231",
+  "pieces": 1,
+  "sizes": [
+   2137
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E232",
+  "display": "E232",
+  "pieces": 1,
+  "sizes": [
+   5966
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E233",
+  "display": "E233",
+  "pieces": 1,
+  "sizes": [
+   5117
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E234",
+  "display": "E234",
+  "pieces": 1,
+  "sizes": [
+   5650
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E24",
+  "display": "E24",
+  "pieces": 1,
+  "sizes": [
+   6465
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E25",
+  "display": "E25",
+  "pieces": 2,
+  "sizes": [
+   76303,
+   36
+  ],
+  "gaps": [
+   {
+    "metres": 446.9,
+    "kind": "defect",
+    "from_country": "IT",
+    "to_country": "IT",
+    "lat": 39.2102,
+    "lon": 9.1073,
+    "nodes": 36
+   }
+  ]
+ },
+ {
+  "road": "E251",
+  "display": "E251",
+  "pieces": 1,
+  "sizes": [
+   7034
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E26",
+  "display": "E26",
+  "pieces": 1,
+  "sizes": [
+   7311
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E261",
+  "display": "E261",
+  "pieces": 1,
+  "sizes": [
+   16261
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E262",
+  "display": "E262",
+  "pieces": 1,
+  "sizes": [
+   5718
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E263",
+  "display": "E263",
+  "pieces": 1,
+  "sizes": [
+   4871
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E264",
+  "display": "E264",
+  "pieces": 1,
+  "sizes": [
+   5428
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E265",
+  "display": "E265",
+  "pieces": 1,
+  "sizes": [
+   2614
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E27",
+  "display": "E27",
+  "pieces": 1,
+  "sizes": [
+   22543
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E271",
+  "display": "E271",
+  "pieces": 1,
+  "sizes": [
+   7375
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E272",
+  "display": "E272",
+  "pieces": 1,
+  "sizes": [
+   9964
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E28",
+  "display": "E28",
+  "pieces": 1,
+  "sizes": [
+   33496
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E29",
+  "display": "E29",
+  "pieces": 1,
+  "sizes": [
+   14555
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E30",
+  "display": "E30",
+  "pieces": 6,
+  "sizes": [
+   81080,
+   22627,
+   5120,
+   22,
+   2,
+   1
+  ],
+  "gaps": [
+   {
+    "metres": 1524.2,
+    "kind": "defect",
+    "from_country": "GB",
+    "to_country": "GB",
+    "lat": 51.9585,
+    "lon": 1.3237,
+    "nodes": 22627
+   },
+   {
+    "metres": 715068.6,
+    "kind": "sea",
+    "from_country": "IE",
+    "to_country": "NL",
+    "lat": 52.2505,
+    "lon": -6.3359,
+    "nodes": 5120
+   },
+   {
+    "metres": 621968.0,
+    "kind": "sea",
+    "from_country": "GB",
+    "to_country": "NL",
+    "lat": 52.0208,
+    "lon": -4.9553,
+    "nodes": 22
+   },
+   {
+    "metres": 2831.9,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 52.0572,
+    "lon": 22.5951,
+    "nodes": 2
+   },
+   {
+    "metres": 2922.5,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 52.0571,
+    "lon": 22.5918,
+    "nodes": 1
+   }
+  ]
+ },
+ {
+  "road": "E31",
+  "display": "E31",
+  "pieces": 1,
+  "sizes": [
+   20832
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E311",
+  "display": "E311",
+  "pieces": 1,
+  "sizes": [
+   2572
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E312",
+  "display": "E312",
+  "pieces": 1,
+  "sizes": [
+   5668
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E313",
+  "display": "E313",
+  "pieces": 1,
+  "sizes": [
+   3316
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E314",
+  "display": "E314",
+  "pieces": 1,
+  "sizes": [
+   5176
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E32",
+  "display": "E32",
+  "pieces": 1,
+  "sizes": [
+   1000
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E33",
+  "display": "E33",
+  "pieces": 1,
+  "sizes": [
+   2905
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E331",
+  "display": "E331",
+  "pieces": 2,
+  "sizes": [
+   5676,
+   1334
+  ],
+  "gaps": [
+   {
+    "metres": 9558.6,
+    "kind": "defect",
+    "from_country": "DE",
+    "to_country": "DE",
+    "lat": 51.2474,
+    "lon": 9.6824,
+    "nodes": 1334
+   }
+  ]
+ },
+ {
+  "road": "E34",
+  "display": "E34",
+  "pieces": 1,
+  "sizes": [
+   17205
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E35",
+  "display": "E35",
+  "pieces": 1,
+  "sizes": [
+   63109
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E36",
+  "display": "E36",
+  "pieces": 1,
+  "sizes": [
+   5265
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E37",
+  "display": "E37",
+  "pieces": 1,
+  "sizes": [
+   10608
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E371",
+  "display": "E371",
+  "pieces": 1,
+  "sizes": [
+   14604
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E372",
+  "display": "E372",
+  "pieces": 1,
+  "sizes": [
+   13655
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E373",
+  "display": "E373",
+  "pieces": 1,
+  "sizes": [
+   5023
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E38",
+  "display": "E38",
+  "pieces": 1,
+  "sizes": [
+   7201
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E39",
+  "display": "E39",
+  "pieces": 3,
+  "sizes": [
+   31926,
+   15482,
+   7
+  ],
+  "gaps": [
+   {
+    "metres": 8523.4,
+    "kind": "sea",
+    "from_country": "NO",
+    "to_country": "NO",
+    "lat": 59.1374,
+    "lon": 5.5884,
+    "nodes": 15482
+   },
+   {
+    "metres": 185548.7,
+    "kind": "defect",
+    "from_country": "NO",
+    "to_country": "NO",
+    "lat": 58.1473,
+    "lon": 7.9871,
+    "nodes": 7
+   }
+  ]
+ },
+ {
+  "road": "E391",
+  "display": "E391",
+  "pieces": 1,
+  "sizes": [
+   561
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E40",
+  "display": "E40",
+  "pieces": 1,
+  "sizes": [
+   105936
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E401",
+  "display": "E401",
+  "pieces": 1,
+  "sizes": [
+   7770
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E402",
+  "display": "E402",
+  "pieces": 1,
+  "sizes": [
+   16999
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E403",
+  "display": "E403",
+  "pieces": 1,
+  "sizes": [
+   3095
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E404",
+  "display": "E404",
+  "pieces": 1,
+  "sizes": [
+   404
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E41",
+  "display": "E41",
+  "pieces": 1,
+  "sizes": [
+   43088
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E411",
+  "display": "E411",
+  "pieces": 1,
+  "sizes": [
+   10473
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E42",
+  "display": "E42",
+  "pieces": 1,
+  "sizes": [
+   32660
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E420",
+  "display": "E420",
+  "pieces": 1,
+  "sizes": [
+   6779
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E421",
+  "display": "E421",
+  "pieces": 4,
+  "sizes": [
+   5102,
+   122,
+   29,
+   15
+  ],
+  "gaps": [
+   {
+    "metres": 13617.8,
+    "kind": "defect",
+    "from_country": "BE",
+    "to_country": "BE",
+    "lat": 50.6379,
+    "lon": 5.8429,
+    "nodes": 122
+   },
+   {
+    "metres": 2552.7,
+    "kind": "defect",
+    "from_country": "BE",
+    "to_country": "BE",
+    "lat": 50.415,
+    "lon": 5.9935,
+    "nodes": 29
+   },
+   {
+    "metres": 728.5,
+    "kind": "defect",
+    "from_country": "BE",
+    "to_country": "BE",
+    "lat": 50.3605,
+    "lon": 6.0431,
+    "nodes": 15
+   }
+  ]
+ },
+ {
+  "road": "E422",
+  "display": "E422",
+  "pieces": 1,
+  "sizes": [
+   4327
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E429",
+  "display": "E429",
+  "pieces": 1,
+  "sizes": [
+   8985
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E43",
+  "display": "E43",
+  "pieces": 1,
+  "sizes": [
+   21038
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E44",
+  "display": "E44",
+  "pieces": 1,
+  "sizes": [
+   33540
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E441",
+  "display": "E441",
+  "pieces": 1,
+  "sizes": [
+   4244
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E442",
+  "display": "E442",
+  "pieces": 7,
+  "sizes": [
+   15053,
+   10750,
+   110,
+   57,
+   35,
+   24
+  ],
+  "gaps": [
+   {
+    "metres": 3694.0,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.9789,
+    "lon": 16.0938,
+    "nodes": 10750
+   },
+   {
+    "metres": 694.6,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.9707,
+    "lon": 16.0435,
+    "nodes": 110
+   },
+   {
+    "metres": 27796.5,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.846,
+    "lon": 16.3712,
+    "nodes": 57
+   },
+   {
+    "metres": 15918.5,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.9008,
+    "lon": 16.2307,
+    "nodes": 35
+   },
+   {
+    "metres": 743.3,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.977,
+    "lon": 16.0526,
+    "nodes": 24
+   },
+   {
+    "metres": 11763.8,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.9186,
+    "lon": 16.1795,
+    "nodes": 5
+   }
+  ]
+ },
+ {
+  "road": "E45",
+  "display": "E45",
+  "pieces": 2,
+  "sizes": [
+   142280,
+   12880
+  ],
+  "gaps": [
+   {
+    "metres": 2618.1,
+    "kind": "ferry",
+    "from_country": "IT",
+    "to_country": "IT",
+    "lat": 38.1867,
+    "lon": 15.5608,
+    "nodes": 12880
+   }
+  ]
+ },
+ {
+  "road": "E451",
+  "display": "E451",
+  "pieces": 1,
+  "sizes": [
+   4564
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E46",
+  "display": "E46",
+  "pieces": 1,
+  "sizes": [
+   31404
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E461",
+  "display": "E461",
+  "pieces": 1,
+  "sizes": [
+   8914
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E462",
+  "display": "E462",
+  "pieces": 1,
+  "sizes": [
+   13645
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E47",
+  "display": "E47",
+  "pieces": 3,
+  "sizes": [
+   7094,
+   3615,
+   30
+  ],
+  "gaps": [
+   {
+    "metres": 1924.6,
+    "kind": "defect",
+    "from_country": "DE",
+    "to_country": "DE",
+    "lat": 54.4742,
+    "lon": 11.2062,
+    "nodes": 3615
+   },
+   {
+    "metres": 880.3,
+    "kind": "defect",
+    "from_country": "DE",
+    "to_country": "DE",
+    "lat": 54.4833,
+    "lon": 11.2111,
+    "nodes": 30
+   }
+  ]
+ },
+ {
+  "road": "E471",
+  "display": "E471",
+  "pieces": 1,
+  "sizes": [
+   4328
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E48",
+  "display": "E48",
+  "pieces": 1,
+  "sizes": [
+   13413
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E49",
+  "display": "E49",
+  "pieces": 3,
+  "sizes": [
+   26961,
+   5,
+   2
+  ],
+  "gaps": [
+   {
+    "metres": 875.8,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.7484,
+    "lon": 13.374,
+    "nodes": 5
+   },
+   {
+    "metres": 1679.7,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.7601,
+    "lon": 13.3692,
+    "nodes": 2
+   }
+  ]
+ },
+ {
+  "road": "E50",
+  "display": "E50",
+  "pieces": 5,
+  "sizes": [
+   103085,
+   13675,
+   26,
+   19,
+   2
+  ],
+  "gaps": [
+   {
+    "metres": 24.9,
+    "kind": "touching",
+    "from_country": "UA",
+    "to_country": "UA",
+    "lat": 48.1146,
+    "lon": 37.4888,
+    "nodes": 13675
+   },
+   {
+    "metres": 745.8,
+    "kind": "defect",
+    "from_country": "SK",
+    "to_country": "SK",
+    "lat": 48.9676,
+    "lon": 21.2542,
+    "nodes": 26
+   },
+   {
+    "metres": 5070.4,
+    "kind": "defect",
+    "from_country": "SK",
+    "to_country": "SK",
+    "lat": 49.2233,
+    "lon": 18.7615,
+    "nodes": 19
+   },
+   {
+    "metres": 1231.5,
+    "kind": "defect",
+    "from_country": "SK",
+    "to_country": "SK",
+    "lat": 48.9859,
+    "lon": 21.2297,
+    "nodes": 2
+   }
+  ]
+ },
+ {
+  "road": "E501",
+  "display": "E501",
+  "pieces": 1,
+  "sizes": [
+   5047
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E502",
+  "display": "E502",
+  "pieces": 1,
+  "sizes": [
+   2102
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E51",
+  "display": "E51",
+  "pieces": 1,
+  "sizes": [
+   13906
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E511",
+  "display": "E511",
+  "pieces": 1,
+  "sizes": [
+   3349
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E512",
+  "display": "E512",
+  "pieces": 1,
+  "sizes": [
+   3192
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E52",
+  "display": "E52",
+  "pieces": 1,
+  "sizes": [
+   20106
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E53",
+  "display": "E53",
+  "pieces": 1,
+  "sizes": [
+   10045
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E531",
+  "display": "E531",
+  "pieces": 1,
+  "sizes": [
+   3779
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E532",
+  "display": "E532",
+  "pieces": 1,
+  "sizes": [
+   5161
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E533",
+  "display": "E533",
+  "pieces": 1,
+  "sizes": [
+   5730
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E54",
+  "display": "E54",
+  "pieces": 1,
+  "sizes": [
+   34558
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E55",
+  "display": "E55",
+  "pieces": 4,
+  "sizes": [
+   108135,
+   5,
+   4,
+   1
+  ],
+  "gaps": [
+   {
+    "metres": 2629.7,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 48.9901,
+    "lon": 14.4836,
+    "nodes": 5
+   },
+   {
+    "metres": 2588.8,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 48.9907,
+    "lon": 14.4839,
+    "nodes": 4
+   },
+   {
+    "metres": 3365.2,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 48.9922,
+    "lon": 14.4694,
+    "nodes": 1
+   }
+  ]
+ },
+ {
+  "road": "E551",
+  "display": "E551",
+  "pieces": 1,
+  "sizes": [
+   3351
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E552",
+  "display": "E552",
+  "pieces": 1,
+  "sizes": [
+   8553
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E56",
+  "display": "E56",
+  "pieces": 1,
+  "sizes": [
+   11044
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E57",
+  "display": "E57",
+  "pieces": 1,
+  "sizes": [
+   14258
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E571",
+  "display": "E571",
+  "pieces": 2,
+  "sizes": [
+   14035,
+   2
+  ],
+  "gaps": [
+   {
+    "metres": 1018.7,
+    "kind": "defect",
+    "from_country": "SK",
+    "to_country": "SK",
+    "lat": 48.1943,
+    "lon": 17.2187,
+    "nodes": 2
+   }
+  ]
+ },
+ {
+  "road": "E572",
+  "display": "E572",
+  "pieces": 1,
+  "sizes": [
+   3195
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E573",
+  "display": "E573",
+  "pieces": 1,
+  "sizes": [
+   3862
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E574",
+  "display": "E574",
+  "pieces": 6,
+  "sizes": [
+   16722,
+   34,
+   3,
+   2,
+   2,
+   1
+  ],
+  "gaps": [
+   {
+    "metres": 2148.6,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 45.6602,
+    "lon": 25.569,
+    "nodes": 34
+   },
+   {
+    "metres": 2419.6,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 45.6547,
+    "lon": 25.6156,
+    "nodes": 3
+   },
+   {
+    "metres": 2277.9,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 45.6636,
+    "lon": 25.5782,
+    "nodes": 2
+   },
+   {
+    "metres": 1902.8,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 45.6577,
+    "lon": 25.6206,
+    "nodes": 2
+   },
+   {
+    "metres": 2500.3,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 45.6649,
+    "lon": 25.5834,
+    "nodes": 1
+   }
+  ]
+ },
+ {
+  "road": "E575",
+  "display": "E575",
+  "pieces": 1,
+  "sizes": [
+   2769
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E576",
+  "display": "E576",
+  "pieces": 1,
+  "sizes": [
+   1487
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E577",
+  "display": "E577",
+  "pieces": 1,
+  "sizes": [
+   1704
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E578",
+  "display": "E578",
+  "pieces": 1,
+  "sizes": [
+   9320
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E579",
+  "display": "E579",
+  "pieces": 1,
+  "sizes": [
+   2881
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E58",
+  "display": "E58",
+  "pieces": 5,
+  "sizes": [
+   43659,
+   6206,
+   4011,
+   47,
+   2
+  ],
+  "gaps": [
+   {
+    "metres": 404.0,
+    "kind": "defect",
+    "from_country": "UA",
+    "to_country": "UA",
+    "lat": 46.7371,
+    "lon": 29.9758,
+    "nodes": 6206
+   },
+   {
+    "metres": 531507.8,
+    "kind": "defect",
+    "from_country": "UA",
+    "to_country": "UA",
+    "lat": 46.8385,
+    "lon": 36.7219,
+    "nodes": 4011
+   },
+   {
+    "metres": 4560.9,
+    "kind": "defect",
+    "from_country": "SK",
+    "to_country": "SK",
+    "lat": 48.1614,
+    "lon": 17.1845,
+    "nodes": 47
+   },
+   {
+    "metres": 870.8,
+    "kind": "defect",
+    "from_country": "SK",
+    "to_country": "SK",
+    "lat": 48.1943,
+    "lon": 17.2187,
+    "nodes": 2
+   }
+  ]
+ },
+ {
+  "road": "E581",
+  "display": "E581",
+  "pieces": 1,
+  "sizes": [
+   8328
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E583",
+  "display": "E583",
+  "pieces": 1,
+  "sizes": [
+   10534
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E584",
+  "display": "E584",
+  "pieces": 2,
+  "sizes": [
+   4627,
+   3841
+  ],
+  "gaps": [
+   {
+    "metres": 114581.9,
+    "kind": "defect",
+    "from_country": "UA",
+    "to_country": "MD",
+    "lat": 47.4365,
+    "lon": 29.3795,
+    "nodes": 3841
+   }
+  ]
+ },
+ {
+  "road": "E59",
+  "display": "E59",
+  "pieces": 1,
+  "sizes": [
+   21237
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E592",
+  "display": "E592",
+  "pieces": 1,
+  "sizes": [
+   2038
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E60",
+  "display": "E60",
+  "pieces": 9,
+  "sizes": [
+   134733,
+   19003,
+   9075,
+   195,
+   70,
+   10
+  ],
+  "gaps": [
+   {
+    "metres": 1349.9,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 46.4608,
+    "lon": 24.6385,
+    "nodes": 19003
+   },
+   {
+    "metres": 1434626.3,
+    "kind": "sea",
+    "from_country": "GE",
+    "to_country": "RO",
+    "lat": 42.1719,
+    "lon": 41.6773,
+    "nodes": 9075
+   },
+   {
+    "metres": 1556397.2,
+    "kind": "sea",
+    "from_country": "GE",
+    "to_country": "RO",
+    "lat": 42.1086,
+    "lon": 43.2663,
+    "nodes": 195
+   },
+   {
+    "metres": 1433958.6,
+    "kind": "sea",
+    "from_country": "GE",
+    "to_country": "RO",
+    "lat": 42.1519,
+    "lon": 41.6556,
+    "nodes": 70
+   },
+   {
+    "metres": 1434083.7,
+    "kind": "sea",
+    "from_country": "GE",
+    "to_country": "RO",
+    "lat": 42.1677,
+    "lon": 41.6674,
+    "nodes": 10
+   },
+   {
+    "metres": 1584329.3,
+    "kind": "sea",
+    "from_country": "GE",
+    "to_country": "RO",
+    "lat": 42.0104,
+    "lon": 43.5779,
+    "nodes": 2
+   },
+   {
+    "metres": 1538069.9,
+    "kind": "sea",
+    "from_country": "GE",
+    "to_country": "RO",
+    "lat": 42.1129,
+    "lon": 43.0246,
+    "nodes": 1
+   },
+   {
+    "metres": 1538078.9,
+    "kind": "sea",
+    "from_country": "GE",
+    "to_country": "RO",
+    "lat": 42.1127,
+    "lon": 43.0246,
+    "nodes": 1
+   }
+  ]
+ },
+ {
+  "road": "E601",
+  "display": "E601",
+  "pieces": 1,
+  "sizes": [
+   2568
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E602",
+  "display": "E602",
+  "pieces": 1,
+  "sizes": [
+   2227
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E603",
+  "display": "E603",
+  "pieces": 3,
+  "sizes": [
+   6713,
+   23,
+   23
+  ],
+  "gaps": [
+   {
+    "metres": 424.4,
+    "kind": "defect",
+    "from_country": "FR",
+    "to_country": "FR",
+    "lat": 45.872,
+    "lon": 0.6914,
+    "nodes": 23
+   },
+   {
+    "metres": 1681.4,
+    "kind": "defect",
+    "from_country": "FR",
+    "to_country": "FR",
+    "lat": 45.8846,
+    "lon": 0.592,
+    "nodes": 23
+   }
+  ]
+ },
+ {
+  "road": "E604",
+  "display": "E604",
+  "pieces": 1,
+  "sizes": [
+   2774
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E606",
+  "display": "E606",
+  "pieces": 1,
+  "sizes": [
+   4264
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E607",
+  "display": "E607",
+  "pieces": 1,
+  "sizes": [
+   2620
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E61",
+  "display": "E61",
+  "pieces": 1,
+  "sizes": [
+   12180
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E611",
+  "display": "E611",
+  "pieces": 1,
+  "sizes": [
+   2324
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E612",
+  "display": "E612",
+  "pieces": 1,
+  "sizes": [
+   1015
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E62",
+  "display": "E62",
+  "pieces": 1,
+  "sizes": [
+   58889
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E63",
+  "display": "E63",
+  "pieces": 1,
+  "sizes": [
+   21998
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E64",
+  "display": "E64",
+  "pieces": 2,
+  "sizes": [
+   9505,
+   23
+  ],
+  "gaps": [
+   {
+    "metres": 3217.7,
+    "kind": "defect",
+    "from_country": "IT",
+    "to_country": "IT",
+    "lat": 45.5478,
+    "lon": 9.0597,
+    "nodes": 23
+   }
+  ]
+ },
+ {
+  "road": "E641",
+  "display": "E641",
+  "pieces": 1,
+  "sizes": [
+   3872
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E65",
+  "display": "E65",
+  "pieces": 4,
+  "sizes": [
+   125166,
+   36220,
+   17,
+   9
+  ],
+  "gaps": [
+   {
+    "metres": 515.7,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.1571,
+    "lon": 16.6303,
+    "nodes": 36220
+   },
+   {
+    "metres": 789.8,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 49.1595,
+    "lon": 16.6318,
+    "nodes": 17
+   },
+   {
+    "metres": 224941.3,
+    "kind": "defect",
+    "from_country": "CZ",
+    "to_country": "CZ",
+    "lat": 50.1193,
+    "lon": 14.589,
+    "nodes": 9
+   }
+  ]
+ },
+ {
+  "road": "E651",
+  "display": "E651",
+  "pieces": 1,
+  "sizes": [
+   2433
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E652",
+  "display": "E652",
+  "pieces": 1,
+  "sizes": [
+   2462
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E653",
+  "display": "E653",
+  "pieces": 1,
+  "sizes": [
+   4108
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E66",
+  "display": "E66",
+  "pieces": 1,
+  "sizes": [
+   26581
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E661",
+  "display": "E661",
+  "pieces": 2,
+  "sizes": [
+   9218,
+   4119
+  ],
+  "gaps": [
+   {
+    "metres": 1174.1,
+    "kind": "defect",
+    "from_country": "BA",
+    "to_country": "BA",
+    "lat": 45.1531,
+    "lon": 17.2421,
+    "nodes": 4119
+   }
+  ]
+ },
+ {
+  "road": "E662",
+  "display": "E662",
+  "pieces": 1,
+  "sizes": [
+   2763
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E67",
+  "display": "E67",
+  "pieces": 2,
+  "sizes": [
+   55246,
+   139
+  ],
+  "gaps": [
+   {
+    "metres": 1823.3,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 51.4164,
+    "lon": 19.6366,
+    "nodes": 139
+   }
+  ]
+ },
+ {
+  "road": "E671",
+  "display": "E671",
+  "pieces": 2,
+  "sizes": [
+   6856,
+   2
+  ],
+  "gaps": [
+   {
+    "metres": 2809.0,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 47.6835,
+    "lon": 22.4715,
+    "nodes": 2
+   }
+  ]
+ },
+ {
+  "road": "E673",
+  "display": "E673",
+  "pieces": 1,
+  "sizes": [
+   2462
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E675",
+  "display": "E675",
+  "pieces": 1,
+  "sizes": [
+   667
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E68",
+  "display": "E68",
+  "pieces": 2,
+  "sizes": [
+   15985,
+   7
+  ],
+  "gaps": [
+   {
+    "metres": 1759.5,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 45.881,
+    "lon": 23.7983,
+    "nodes": 7
+   }
+  ]
+ },
+ {
+  "road": "E69",
+  "display": "E69",
+  "pieces": 1,
+  "sizes": [
+   4260
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E691",
+  "display": "E691",
+  "pieces": 1,
+  "sizes": [
+   7961
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E692",
+  "display": "E692",
+  "pieces": 1,
+  "sizes": [
+   2927
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E70",
+  "display": "E70",
+  "pieces": 2,
+  "sizes": [
+   148613,
+   20928
+  ],
+  "gaps": [
+   {
+    "metres": 722323.1,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "BG",
+    "lat": 41.2899,
+    "lon": 36.2847,
+    "nodes": 20928
+   }
+  ]
+ },
+ {
+  "road": "E71",
+  "display": "E71",
+  "pieces": 1,
+  "sizes": [
+   35023
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E711",
+  "display": "E711",
+  "pieces": 1,
+  "sizes": [
+   4712
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E712",
+  "display": "E712",
+  "pieces": 1,
+  "sizes": [
+   21396
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E713",
+  "display": "E713",
+  "pieces": 1,
+  "sizes": [
+   5136
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E714",
+  "display": "E714",
+  "pieces": 1,
+  "sizes": [
+   3464
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E717",
+  "display": "E717",
+  "pieces": 1,
+  "sizes": [
+   4753
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E72",
+  "display": "E72",
+  "pieces": 1,
+  "sizes": [
+   4758
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E73",
+  "display": "E73",
+  "pieces": 3,
+  "sizes": [
+   13106,
+   7647,
+   61
+  ],
+  "gaps": [
+   {
+    "metres": 9423.1,
+    "kind": "defect",
+    "from_country": "BA",
+    "to_country": "BA",
+    "lat": 44.2458,
+    "lon": 17.9029,
+    "nodes": 7647
+   },
+   {
+    "metres": 65606.3,
+    "kind": "defect",
+    "from_country": "BA",
+    "to_country": "BA",
+    "lat": 43.7473,
+    "lon": 18.0419,
+    "nodes": 61
+   }
+  ]
+ },
+ {
+  "road": "E74",
+  "display": "E74",
+  "pieces": 1,
+  "sizes": [
+   10779
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E75",
+  "display": "E75",
+  "pieces": 5,
+  "sizes": [
+   116465,
+   31650,
+   47,
+   7,
+   2
+  ],
+  "gaps": [
+   {
+    "metres": 745956.8,
+    "kind": "sea",
+    "from_country": "FI",
+    "to_country": "PL",
+    "lat": 60.1696,
+    "lon": 24.9586,
+    "nodes": 31650
+   },
+   {
+    "metres": 4560.9,
+    "kind": "defect",
+    "from_country": "SK",
+    "to_country": "SK",
+    "lat": 48.1614,
+    "lon": 17.1845,
+    "nodes": 47
+   },
+   {
+    "metres": 5240.0,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 50.4651,
+    "lon": 19.2306,
+    "nodes": 7
+   },
+   {
+    "metres": 870.8,
+    "kind": "defect",
+    "from_country": "SK",
+    "to_country": "SK",
+    "lat": 48.1943,
+    "lon": 17.2187,
+    "nodes": 2
+   }
+  ]
+ },
+ {
+  "road": "E751",
+  "display": "E751",
+  "pieces": 1,
+  "sizes": [
+   7220
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E76",
+  "display": "E76",
+  "pieces": 1,
+  "sizes": [
+   2504
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E761",
+  "display": "E761",
+  "pieces": 1,
+  "sizes": [
+   38834
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E762",
+  "display": "E762",
+  "pieces": 1,
+  "sizes": [
+   22898
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E763",
+  "display": "E763",
+  "pieces": 2,
+  "sizes": [
+   22637,
+   42
+  ],
+  "gaps": [
+   {
+    "metres": 1176.3,
+    "kind": "defect",
+    "from_country": "RS",
+    "to_country": "RS",
+    "lat": 43.9122,
+    "lon": 20.4075,
+    "nodes": 42
+   }
+  ]
+ },
+ {
+  "road": "E77",
+  "display": "E77",
+  "pieces": 8,
+  "sizes": [
+   18464,
+   13336,
+   12466,
+   12215,
+   311,
+   278
+  ],
+  "gaps": [
+   {
+    "metres": 2699.3,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 50.1097,
+    "lon": 19.9659,
+    "nodes": 13336
+   },
+   {
+    "metres": 504688.0,
+    "kind": "sea",
+    "from_country": "RU",
+    "to_country": "PL",
+    "lat": 54.6462,
+    "lon": 19.8987,
+    "nodes": 12466
+   },
+   {
+    "metres": 260262.8,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 52.3713,
+    "lon": 20.7923,
+    "nodes": 12215
+   },
+   {
+    "metres": 7248.2,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 50.0864,
+    "lon": 20.0608,
+    "nodes": 311
+   },
+   {
+    "metres": 7233.7,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 50.087,
+    "lon": 20.0605,
+    "nodes": 278
+   },
+   {
+    "metres": 260244.8,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 52.3709,
+    "lon": 20.7937,
+    "nodes": 32
+   },
+   {
+    "metres": 259570.9,
+    "kind": "defect",
+    "from_country": "PL",
+    "to_country": "PL",
+    "lat": 52.3578,
+    "lon": 20.8344,
+    "nodes": 6
+   }
+  ]
+ },
+ {
+  "road": "E771",
+  "display": "E771",
+  "pieces": 1,
+  "sizes": [
+   11677
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E772",
+  "display": "E772",
+  "pieces": 1,
+  "sizes": [
+   5381
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E773",
+  "display": "E773",
+  "pieces": 1,
+  "sizes": [
+   4030
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E78",
+  "display": "E78",
+  "pieces": 2,
+  "sizes": [
+   10165,
+   1254
+  ],
+  "gaps": [
+   {
+    "metres": 674.0,
+    "kind": "defect",
+    "from_country": "IT",
+    "to_country": "IT",
+    "lat": 43.0075,
+    "lon": 11.2878,
+    "nodes": 1254
+   }
+  ]
+ },
+ {
+  "road": "E79",
+  "display": "E79",
+  "pieces": 1,
+  "sizes": [
+   44365
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E80",
+  "display": "E80",
+  "pieces": 12,
+  "sizes": [
+   112771,
+   72235,
+   39758,
+   290,
+   250,
+   175
+  ],
+  "gaps": [
+   {
+    "metres": 570852.1,
+    "kind": "sea",
+    "from_country": "XK",
+    "to_country": "IT",
+    "lat": 42.8543,
+    "lon": 21.1823,
+    "nodes": 72235
+   },
+   {
+    "metres": 317751.6,
+    "kind": "sea",
+    "from_country": "HR",
+    "to_country": "IT",
+    "lat": 42.6615,
+    "lon": 18.0904,
+    "nodes": 39758
+   },
+   {
+    "metres": 2253358.0,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "IT",
+    "lat": 39.9568,
+    "lon": 41.0649,
+    "nodes": 290
+   },
+   {
+    "metres": 566248.0,
+    "kind": "sea",
+    "from_country": "XK",
+    "to_country": "IT",
+    "lat": 42.7291,
+    "lon": 21.1298,
+    "nodes": 250
+   },
+   {
+    "metres": 568147.9,
+    "kind": "sea",
+    "from_country": "XK",
+    "to_country": "IT",
+    "lat": 42.7091,
+    "lon": 21.1533,
+    "nodes": 175
+   },
+   {
+    "metres": 1240754.6,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "IT",
+    "lat": 41.0908,
+    "lon": 29.0884,
+    "nodes": 108
+   },
+   {
+    "metres": 554484.7,
+    "kind": "sea",
+    "from_country": "XK",
+    "to_country": "IT",
+    "lat": 42.815,
+    "lon": 20.9832,
+    "nodes": 15
+   },
+   {
+    "metres": 1231385.5,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "IT",
+    "lat": 41.1001,
+    "lon": 28.9767,
+    "nodes": 8
+   },
+   {
+    "metres": 567979.6,
+    "kind": "sea",
+    "from_country": "XK",
+    "to_country": "IT",
+    "lat": 42.7128,
+    "lon": 21.1512,
+    "nodes": 4
+   },
+   {
+    "metres": 1673334.0,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "IT",
+    "lat": 41.1015,
+    "lon": 34.3658,
+    "nodes": 2
+   },
+   {
+    "metres": 1673342.7,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "IT",
+    "lat": 41.1013,
+    "lon": 34.3659,
+    "nodes": 2
+   }
+  ]
+ },
+ {
+  "road": "E801",
+  "display": "E801",
+  "pieces": 1,
+  "sizes": [
+   10291
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E802",
+  "display": "E802",
+  "pieces": 2,
+  "sizes": [
+   15964,
+   3836
+  ],
+  "gaps": [
+   {
+    "metres": 598.2,
+    "kind": "defect",
+    "from_country": "PT",
+    "to_country": "PT",
+    "lat": 38.6376,
+    "lon": -7.853,
+    "nodes": 3836
+   }
+  ]
+ },
+ {
+  "road": "E803",
+  "display": "E803",
+  "pieces": 1,
+  "sizes": [
+   12340
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E804",
+  "display": "E804",
+  "pieces": 1,
+  "sizes": [
+   9568
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E805",
+  "display": "E805",
+  "pieces": 1,
+  "sizes": [
+   4410
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E806",
+  "display": "E806",
+  "pieces": 1,
+  "sizes": [
+   3647
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E81",
+  "display": "E81",
+  "pieces": 3,
+  "sizes": [
+   29083,
+   7,
+   3
+  ],
+  "gaps": [
+   {
+    "metres": 1759.5,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 45.881,
+    "lon": 23.7983,
+    "nodes": 7
+   },
+   {
+    "metres": 1290.7,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 46.3142,
+    "lon": 23.7241,
+    "nodes": 3
+   }
+  ]
+ },
+ {
+  "road": "E82",
+  "display": "E82",
+  "pieces": 1,
+  "sizes": [
+   13101
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E821",
+  "display": "E821",
+  "pieces": 1,
+  "sizes": [
+   1455
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E83",
+  "display": "E83",
+  "pieces": 1,
+  "sizes": [
+   3841
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E84",
+  "display": "E84",
+  "pieces": 1,
+  "sizes": [
+   6028
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E840",
+  "display": "E840",
+  "pieces": 1,
+  "sizes": [
+   3510
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E841",
+  "display": "E841",
+  "pieces": 1,
+  "sizes": [
+   2196
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E842",
+  "display": "E842",
+  "pieces": 1,
+  "sizes": [
+   7109
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E843",
+  "display": "E843",
+  "pieces": 1,
+  "sizes": [
+   2486
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E844",
+  "display": "E844",
+  "pieces": 2,
+  "sizes": [
+   641,
+   87
+  ],
+  "gaps": [
+   {
+    "metres": 2088250.4,
+    "kind": "sea",
+    "from_country": "SE",
+    "to_country": "IT",
+    "lat": 58.5078,
+    "lon": 16.3201,
+    "nodes": 87
+   }
+  ]
+ },
+ {
+  "road": "E846",
+  "display": "E846",
+  "pieces": 3,
+  "sizes": [
+   3208,
+   8,
+   5
+  ],
+  "gaps": [
+   {
+    "metres": 15718.1,
+    "kind": "defect",
+    "from_country": "IT",
+    "to_country": "IT",
+    "lat": 39.3566,
+    "lon": 16.0458,
+    "nodes": 8
+   },
+   {
+    "metres": 6667.8,
+    "kind": "defect",
+    "from_country": "IT",
+    "to_country": "IT",
+    "lat": 39.3369,
+    "lon": 16.1513,
+    "nodes": 5
+   }
+  ]
+ },
+ {
+  "road": "E847",
+  "display": "E847",
+  "pieces": 1,
+  "sizes": [
+   5599
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E848",
+  "display": "E848",
+  "pieces": 1,
+  "sizes": [
+   1992
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E85",
+  "display": "E85",
+  "pieces": 8,
+  "sizes": [
+   25085,
+   12559,
+   9775,
+   3447,
+   187,
+   56
+  ],
+  "gaps": [
+   {
+    "metres": 744210.3,
+    "kind": "defect",
+    "from_country": "BY",
+    "to_country": "RO",
+    "lat": 53.1111,
+    "lon": 25.3266,
+    "nodes": 12559
+   },
+   {
+    "metres": 15353.3,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 46.6359,
+    "lon": 26.9135,
+    "nodes": 9775
+   },
+   {
+    "metres": 622430.7,
+    "kind": "defect",
+    "from_country": "BY",
+    "to_country": "RO",
+    "lat": 51.8281,
+    "lon": 24.3058,
+    "nodes": 3447
+   },
+   {
+    "metres": 775.6,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 46.4988,
+    "lon": 26.9529,
+    "nodes": 187
+   },
+   {
+    "metres": 827887.6,
+    "kind": "defect",
+    "from_country": "BY",
+    "to_country": "RO",
+    "lat": 53.8685,
+    "lon": 25.2763,
+    "nodes": 56
+   },
+   {
+    "metres": 7980.5,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 46.5695,
+    "lon": 26.9154,
+    "nodes": 5
+   },
+   {
+    "metres": 8053.5,
+    "kind": "defect",
+    "from_country": "RO",
+    "to_country": "RO",
+    "lat": 46.5702,
+    "lon": 26.9154,
+    "nodes": 4
+   }
+  ]
+ },
+ {
+  "road": "E851",
+  "display": "E851",
+  "pieces": 1,
+  "sizes": [
+   15046
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E852",
+  "display": "E852",
+  "pieces": 2,
+  "sizes": [
+   2693,
+   2331
+  ],
+  "gaps": [
+   {
+    "metres": 8068.1,
+    "kind": "defect",
+    "from_country": "AL",
+    "to_country": "AL",
+    "lat": 41.1722,
+    "lon": 20.2569,
+    "nodes": 2331
+   }
+  ]
+ },
+ {
+  "road": "E853",
+  "display": "E853",
+  "pieces": 1,
+  "sizes": [
+   3055
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E86",
+  "display": "E86",
+  "pieces": 1,
+  "sizes": [
+   6440
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E87",
+  "display": "E87",
+  "pieces": 27,
+  "sizes": [
+   33187,
+   15262,
+   748,
+   634,
+   575,
+   563
+  ],
+  "gaps": [
+   {
+    "metres": 130371.0,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.0818,
+    "lon": 27.1183,
+    "nodes": 15262
+   },
+   {
+    "metres": 2085.3,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 40.1158,
+    "lon": 26.4121,
+    "nodes": 748
+   },
+   {
+    "metres": 77301.7,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.5922,
+    "lon": 27.0123,
+    "nodes": 634
+   },
+   {
+    "metres": 60985.7,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.5845,
+    "lon": 26.4858,
+    "nodes": 575
+   },
+   {
+    "metres": 71084.6,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.584,
+    "lon": 26.8704,
+    "nodes": 563
+   },
+   {
+    "metres": 28251.5,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.8889,
+    "lon": 26.3242,
+    "nodes": 519
+   },
+   {
+    "metres": 108731.6,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.197,
+    "lon": 26.8138,
+    "nodes": 466
+   },
+   {
+    "metres": 52366.7,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.6622,
+    "lon": 26.3932,
+    "nodes": 319
+   },
+   {
+    "metres": 91863.3,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.3409,
+    "lon": 26.7514,
+    "nodes": 289
+   },
+   {
+    "metres": 67297.7,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.5625,
+    "lon": 26.7087,
+    "nodes": 203
+   },
+   {
+    "metres": 102240.9,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.2426,
+    "lon": 26.7453,
+    "nodes": 187
+   },
+   {
+    "metres": 129140.0,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.0696,
+    "lon": 27.0508,
+    "nodes": 176
+   },
+   {
+    "metres": 83689.3,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.4732,
+    "lon": 26.9154,
+    "nodes": 171
+   },
+   {
+    "metres": 47825.2,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.704,
+    "lon": 26.3788,
+    "nodes": 140
+   },
+   {
+    "metres": 69830.4,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.5691,
+    "lon": 26.8045,
+    "nodes": 134
+   },
+   {
+    "metres": 89809.9,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.3818,
+    "lon": 26.8312,
+    "nodes": 116
+   },
+   {
+    "metres": 86236.8,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.4264,
+    "lon": 26.8604,
+    "nodes": 112
+   },
+   {
+    "metres": 43928.2,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.7402,
+    "lon": 26.3682,
+    "nodes": 91
+   },
+   {
+    "metres": 25655.2,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.9212,
+    "lon": 26.3003,
+    "nodes": 90
+   },
+   {
+    "metres": 59886.5,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.5936,
+    "lon": 26.4665,
+    "nodes": 70
+   },
+   {
+    "metres": 42118.2,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.757,
+    "lon": 26.3652,
+    "nodes": 67
+   },
+   {
+    "metres": 8427.9,
+    "kind": "ferry",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 40.1852,
+    "lon": 26.3592,
+    "nodes": 41
+   },
+   {
+    "metres": 83375.4,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.4823,
+    "lon": 26.9288,
+    "nodes": 35
+   },
+   {
+    "metres": 2032.4,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 40.1172,
+    "lon": 26.411,
+    "nodes": 7
+   },
+   {
+    "metres": 3062.7,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 40.349,
+    "lon": 26.6836,
+    "nodes": 6
+   },
+   {
+    "metres": 2029.4,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 40.117,
+    "lon": 26.4114,
+    "nodes": 6
+   }
+  ]
+ },
+ {
+  "road": "E871",
+  "display": "E871",
+  "pieces": 1,
+  "sizes": [
+   4592
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E88",
+  "display": "E88",
+  "pieces": 2,
+  "sizes": [
+   16070,
+   2849
+  ],
+  "gaps": [
+   {
+    "metres": 1455.8,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 39.9509,
+    "lon": 33.0007,
+    "nodes": 2849
+   }
+  ]
+ },
+ {
+  "road": "E881",
+  "display": "E881",
+  "pieces": 1,
+  "sizes": [
+   13669
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E89",
+  "display": "E89",
+  "pieces": 1,
+  "sizes": [
+   5743
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E90",
+  "display": "E90",
+  "pieces": 19,
+  "sizes": [
+   44936,
+   33762,
+   32158,
+   14700,
+   11931,
+   6326
+  ],
+  "gaps": [
+   {
+    "metres": 1550524.2,
+    "kind": "sea",
+    "from_country": "GR",
+    "to_country": "ES",
+    "lat": 39.4514,
+    "lon": 20.351,
+    "nodes": 33762
+   },
+   {
+    "metres": 2251519.6,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "ES",
+    "lat": 40.288,
+    "lon": 29.0065,
+    "nodes": 32158
+   },
+   {
+    "metres": 984586.3,
+    "kind": "sea",
+    "from_country": "IT",
+    "to_country": "ES",
+    "lat": 37.6646,
+    "lon": 12.6115,
+    "nodes": 14700
+   },
+   {
+    "metres": 1205966.5,
+    "kind": "sea",
+    "from_country": "IT",
+    "to_country": "ES",
+    "lat": 38.1335,
+    "lon": 15.6582,
+    "nodes": 11931
+   },
+   {
+    "metres": 1222676.1,
+    "kind": "sea",
+    "from_country": "IT",
+    "to_country": "ES",
+    "lat": 40.0931,
+    "lon": 16.6065,
+    "nodes": 6326
+   },
+   {
+    "metres": 2220785.8,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "ES",
+    "lat": 40.2691,
+    "lon": 28.6312,
+    "nodes": 2475
+   },
+   {
+    "metres": 4271.1,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 40.6744,
+    "lon": -3.1758,
+    "nodes": 94
+   },
+   {
+    "metres": 2052969.7,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "ES",
+    "lat": 40.4121,
+    "lon": 26.649,
+    "nodes": 80
+   },
+   {
+    "metres": 2953.5,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 40.6213,
+    "lon": -3.2419,
+    "nodes": 62
+   },
+   {
+    "metres": 6306.3,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 40.6338,
+    "lon": -3.2786,
+    "nodes": 54
+   },
+   {
+    "metres": 2259223.8,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "ES",
+    "lat": 40.194,
+    "lon": 29.0732,
+    "nodes": 29
+   },
+   {
+    "metres": 2259199.3,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "ES",
+    "lat": 40.1933,
+    "lon": 29.0727,
+    "nodes": 28
+   },
+   {
+    "metres": 2449.7,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 40.6498,
+    "lon": -3.175,
+    "nodes": 27
+   },
+   {
+    "metres": 2775.9,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 40.6528,
+    "lon": -3.1749,
+    "nodes": 15
+   },
+   {
+    "metres": 1660.6,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 40.6423,
+    "lon": -3.174,
+    "nodes": 10
+   },
+   {
+    "metres": 2751.2,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 40.6524,
+    "lon": -3.174,
+    "nodes": 6
+   },
+   {
+    "metres": 2053882.0,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "ES",
+    "lat": 40.406,
+    "lon": 26.6584,
+    "nodes": 6
+   },
+   {
+    "metres": 5323.5,
+    "kind": "defect",
+    "from_country": "ES",
+    "to_country": "ES",
+    "lat": 40.6182,
+    "lon": -3.2789,
+    "nodes": 3
+   }
+  ]
+ },
+ {
+  "road": "E901",
+  "display": "E901",
+  "pieces": 1,
+  "sizes": [
+   10685
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E902",
+  "display": "E902",
+  "pieces": 1,
+  "sizes": [
+   7465
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E91",
+  "display": "E91",
+  "pieces": 2,
+  "sizes": [
+   2864,
+   2454
+  ],
+  "gaps": [
+   {
+    "metres": 14855.9,
+    "kind": "defect",
+    "from_country": "TR",
+    "to_country": "TR",
+    "lat": 36.518,
+    "lon": 36.165,
+    "nodes": 2454
+   }
+  ]
+ },
+ {
+  "road": "E92",
+  "display": "E92",
+  "pieces": 1,
+  "sizes": [
+   12808
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E931",
+  "display": "E931",
+  "pieces": 1,
+  "sizes": [
+   3822
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E932",
+  "display": "E932",
+  "pieces": 1,
+  "sizes": [
+   4251
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E933",
+  "display": "E933",
+  "pieces": 1,
+  "sizes": [
+   1159
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E94",
+  "display": "E94",
+  "pieces": 1,
+  "sizes": [
+   5139
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E95",
+  "display": "E95",
+  "pieces": 2,
+  "sizes": [
+   25343,
+   2315
+  ],
+  "gaps": [
+   {
+    "metres": 725062.0,
+    "kind": "sea",
+    "from_country": "TR",
+    "to_country": "UA",
+    "lat": 41.2865,
+    "lon": 36.1964,
+    "nodes": 2315
+   }
+  ]
+ },
+ {
+  "road": "E951",
+  "display": "E951",
+  "pieces": 1,
+  "sizes": [
+   5508
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E952",
+  "display": "E952",
+  "pieces": 1,
+  "sizes": [
+   12672
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E96",
+  "display": "E96",
+  "pieces": 1,
+  "sizes": [
+   9408
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E961",
+  "display": "E961",
+  "pieces": 1,
+  "sizes": [
+   2889
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E962",
+  "display": "E962",
+  "pieces": 1,
+  "sizes": [
+   2619
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E97",
+  "display": "E97",
+  "pieces": 1,
+  "sizes": [
+   39255
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E98",
+  "display": "E98",
+  "pieces": 1,
+  "sizes": [
+   920
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E981",
+  "display": "E981",
+  "pieces": 1,
+  "sizes": [
+   7749
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E982",
+  "display": "E982",
+  "pieces": 1,
+  "sizes": [
+   2428
+  ],
+  "gaps": []
+ },
+ {
+  "road": "E99",
+  "display": "E99",
+  "pieces": 1,
+  "sizes": [
+   16035
+  ],
+  "gaps": []
+ }
+]

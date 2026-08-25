@@ -1,0 +1,18 @@
+# Understood by both Netlify and Cloudflare Pages.
+
+# The shell is tiny and carries the ?v= stamps that version everything else,
+# so it must never be served from cache.
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Data is not versioned in its filename and changes on every rebuild, so it has
+# to be revalidated.  That costs one conditional request: unchanged files come
+# back as a 304 with no body, so a repeat visit pays nothing for the 13 MB.
+/data/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# These carry ?v= stamps in the markup, so a changed file is a changed URL.
+/app.js
+  Cache-Control: public, max-age=604800
+/style.css
+  Cache-Control: public, max-age=604800

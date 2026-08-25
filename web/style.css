@@ -1,0 +1,632 @@
+:root {
+  --bg: #f7f6f3;
+  --panel: #ffffff;
+  --ink: #1b1c1e;
+  --ink-soft: #5f6470;
+  --ink-faint: #8b909b;
+  --line: #e2e0da;
+  --land: #e4e0d6;
+  --land-edge: #b9b4a8;
+  --sea: #f7f6f3;
+  --network: #a8a294;
+  --accent: #1f5fa8;
+  --focus: #b8860b;
+
+  /* Categorical slots, validated for colour-vision deficiency against the
+     chart surface in both modes (dataviz reference palette).  The first three
+     clear the all-pairs floors, which is the case that applies here: any road
+     can end up beside any other on a map, unlike bars in a fixed order. */
+  --slot-1: #2a78d6;
+  --slot-2: #eb6834;
+  --slot-3: #1baf7a;
+  --slot-4: #eda100;
+  --slot-5: #e87ba4;
+  --slot-6: #008300;
+  --slot-7: #4a3aa7;
+  --slot-8: #e34948;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14161a;
+    --panel: #1c1f25;
+    --ink: #eceef2;
+    --ink-soft: #a3aab8;
+    --ink-faint: #6f7787;
+    --line: #2b3038;
+    --land: #21252c;
+    --land-edge: #333943;
+    --sea: #14161a;
+    --network: #4b535f;
+    --accent: #6fa8f5;
+    --focus: #e8c169;
+
+    /* The same eight hues, stepped for the dark surface - not an automatic
+       flip of the light values. */
+    --slot-1: #3987e5;
+    --slot-2: #d95926;
+    --slot-3: #199e70;
+    --slot-4: #c98500;
+    --slot-5: #d55181;
+    --slot-6: #008300;
+    --slot-7: #9085e9;
+    --slot-8: #e66767;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.5 "Inter", -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  height: 100vh;
+}
+
+/* ---------- side panel ---------- */
+
+#panel {
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+#panel header {
+  padding: 20px 20px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--ink-faint);
+  font-size: 12px;
+}
+
+.controls { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+
+.field { margin-bottom: 12px; position: relative; }
+
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 5px;
+}
+
+input[type="search"], input[type="text"] {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+.suggestions {
+  position: absolute;
+  z-index: 20;
+  left: 0; right: 0;
+  top: 100%;
+  margin-top: 3px;
+  max-height: 260px;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+}
+
+.suggestions:empty { display: none; }
+
+.suggestions button {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 11px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.suggestions button:hover, .suggestions button[aria-selected="true"] {
+  background: var(--bg);
+}
+
+.suggestions .where { color: var(--ink-faint); font-size: 12px; white-space: nowrap; }
+
+.row { display: flex; gap: 8px; align-items: center; }
+
+button.primary {
+  flex: 1;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary:disabled { opacity: 0.45; cursor: default; }
+
+button.ghost {
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: none;
+  color: var(--ink-soft);
+  font: inherit;
+  cursor: pointer;
+}
+
+.toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.toggles label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
+
+/* ---------- results ---------- */
+
+#results { flex: 1; overflow-y: auto; padding: 8px 0 24px; }
+
+.empty { padding: 28px 20px; color: var(--ink-faint); font-size: 13px; }
+
+.route {
+  margin: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.route[data-active="true"] { border-color: var(--accent); }
+
+.route > summary {
+  list-style: none;
+  padding: 11px 13px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 8px 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.route > summary::-webkit-details-marker { display: none; }
+
+.swatch { width: 8px; height: 34px; border-radius: 4px; }
+.route[data-index="0"] .swatch { background: var(--accent); }
+.route[data-index="1"] .swatch,
+.route[data-index="2"] .swatch { background: var(--ink-faint); }
+
+.route-roads { font-weight: 620; letter-spacing: -0.01em; }
+.route-why { color: var(--ink-faint); font-size: 12px; }
+.route-stats { text-align: right; font-variant-numeric: tabular-nums; }
+.route-stats b { display: block; font-weight: 620; }
+.route-stats span { color: var(--ink-faint); font-size: 12px; }
+
+.legs { border-top: 1px solid var(--line); padding: 4px 0; }
+
+.leg {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 10px;
+  padding: 9px 13px;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+}
+
+.leg:hover { background: var(--bg); }
+
+.leg-road {
+  font-weight: 660;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+/* Both are spans inside one grid cell, so they need to be blocks to stack -
+   as inlines they ran together and the `margin-top` below did nothing. */
+.leg-from { display: block; font-size: 13px; }
+.leg-detail { display: block; color: var(--ink-faint); font-size: 12px; margin-top: 2px; }
+.leg > span:last-child { min-width: 0; }
+.leg-change {
+  padding: 7px 13px 7px 81px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  border-left: 2px solid transparent;
+}
+.leg-change b { color: var(--ink); font-weight: 600; }
+
+.ferry { color: var(--slot-3); font-weight: 600; }
+
+/* ---------- map ---------- */
+
+#map { position: relative; background: var(--sea); overflow: hidden; }
+#map svg { display: block; width: 100%; height: 100%; cursor: grab; }
+#map svg:active { cursor: grabbing; }
+
+.land { fill: var(--land); stroke: var(--land-edge); stroke-width: 0.5px; vector-effect: non-scaling-stroke; }
+.network-line {
+  fill: none;
+  stroke-width: 1.9px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.85;
+}
+
+/* Coloured by the road's AGR class, which is a real three-value attribute.
+   Two hundred and fifty roads cannot each have a hue, and cycling eight of
+   them would imply a kinship between roads that share a colour when none
+   exists; the road number comes from hovering instead. */
+.network-line.ref { stroke: var(--slot-1); }
+.network-line.intermediate { stroke: var(--slot-3); }
+.network-line.branch { stroke: var(--slot-2); opacity: 0.6; }
+.network-line.ramp { stroke: var(--network); opacity: 0.5; stroke-width: 1px; }
+.network-line.lit { stroke: var(--focus); stroke-width: 3.4px; opacity: 1; }
+
+/* An invisible fat stroke so thin lines are still easy to hit. */
+.network-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 12px;
+  vector-effect: non-scaling-stroke;
+  pointer-events: stroke;
+  cursor: pointer;
+}
+
+.city-dot { fill: var(--ink-faint); }
+
+.route-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-width: 3.4px;
+}
+
+.route-line.slot-1 { stroke: var(--slot-1); }
+.route-line.slot-2 { stroke: var(--slot-2); }
+.route-line.slot-3 { stroke: var(--slot-3); }
+.route-line.slot-4 { stroke: var(--slot-4); }
+.route-line.slot-5 { stroke: var(--slot-5); }
+.route-line.slot-6 { stroke: var(--slot-6); }
+.route-line.slot-7 { stroke: var(--slot-7); }
+.route-line.slot-8 { stroke: var(--slot-8); }
+
+/* Alternatives are shown as a recessive dashed trace so they read as context
+   rather than competing with the route being described. */
+.route-line.alternative { stroke: var(--ink-faint); stroke-width: 2px; opacity: 0.45; stroke-dasharray: 7 5; }
+.route-line.lit { stroke: var(--focus); stroke-width: 6px; }
+
+/* A ferry is a straight line over water on purpose - dashing it says so, and
+   stops it reading as a road drawn wrong. */
+.route-line.sea { stroke-dasharray: 3 6; stroke-width: 2.4px; }
+.network-line.sea { stroke-dasharray: 2 5; }
+
+.endpoint { fill: var(--panel); stroke: var(--ink); stroke-width: 1.4px; vector-effect: non-scaling-stroke; }
+.changepoint { fill: var(--panel); stroke: var(--ink-soft); stroke-width: 1.4px; vector-effect: non-scaling-stroke; }
+.changepoint:hover { stroke: var(--focus); }
+
+.leg-swatch {
+  display: inline-block;
+  width: 9px; height: 9px;
+  border-radius: 2px;
+  margin-right: 5px;
+  vertical-align: baseline;
+}
+.leg-swatch.slot-1 { background: var(--slot-1); }
+.leg-swatch.slot-2 { background: var(--slot-2); }
+.leg-swatch.slot-3 { background: var(--slot-3); }
+.leg-swatch.slot-4 { background: var(--slot-4); }
+.leg-swatch.slot-5 { background: var(--slot-5); }
+.leg-swatch.slot-6 { background: var(--slot-6); }
+.leg-swatch.slot-7 { background: var(--slot-7); }
+.leg-swatch.slot-8 { background: var(--slot-8); }
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 20px 12px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+}
+.legend label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+.legend i { width: 15px; height: 3px; border-radius: 2px; display: inline-block; flex: none; }
+
+/* A generous invisible target: the visible dot stays small so the map is not
+   speckled, but hovering it should not require precision. */
+.city-hit { fill: transparent; pointer-events: all; cursor: pointer; }
+.city-dot { pointer-events: none; }
+.city-dot.lit { fill: var(--focus); }
+
+.network-line.faded { opacity: 0.12; }
+.network-line.picked { stroke: var(--focus); stroke-width: 3.6px; opacity: 1; }
+
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+#tooltip[data-show="true"] { opacity: 1; }
+
+#status, #attribution {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  color: var(--ink-faint);
+  font-size: 11px;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+#zoom {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#zoom button {
+  width: 30px; height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 860px) {
+  #app { grid-template-columns: 1fr; grid-template-rows: 46vh 54vh; }
+  #panel { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+
+#attribution {
+  left: auto;
+  right: 14px;
+  bottom: 12px;
+}
+
+#attribution a { color: var(--ink-soft); }
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 9px;
+  font-size: 12px;
+  color: var(--ink-faint);
+  cursor: pointer;
+}
+
+.warn {
+  margin: 0 14px 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--route-2, #c2560f) 12%, transparent);
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.titlebar { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+
+button.icon {
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--ink-soft);
+  border-radius: 7px;
+  width: 30px; height: 30px;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  flex: none;
+}
+
+button.icon:hover { color: var(--ink); border-color: var(--ink-faint); }
+
+/* ---------- collapsible sidebar ---------- */
+
+/* Collapsing sets the grid column to zero rather than hiding the panel with
+   `display:none`, so the transition has something to animate and the inputs
+   keep their values and focus history. */
+#app { transition: grid-template-columns 0.18s ease; }
+#app.panel-collapsed { grid-template-columns: 0 1fr; }
+#app.panel-collapsed #panel { border-right: 0; }
+
+#panel { overflow: hidden; }
+
+.titlebar { display: flex; align-items: center; gap: 6px; }
+.titlebar h1 { flex: 1; }
+
+/* A drawer tab on the map's edge, which is out of the way of every other
+   control and reads as "there is something folded away here". */
+#panel-show {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 56px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-left: 0;
+  border-radius: 0 9px 9px 0;
+  background: var(--panel);
+  color: var(--ink-soft);
+  cursor: pointer;
+  z-index: 7;
+}
+#panel-show:hover { color: var(--ink); }
+#app.panel-collapsed #panel-show { display: flex; }
+
+/* ---------- the route plan, floating over the map ---------- */
+
+#pip {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 348px;
+  max-width: calc(100% - 28px);
+  max-height: calc(100% - 28px);
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+  z-index: 6;
+}
+
+:root:not([data-theme="light"]) #pip { box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45); }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) #pip { box-shadow: 0 10px 34px rgba(0, 0, 0, 0.16); }
+}
+
+#pip[hidden] { display: none; }
+
+.pip-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 8px 9px 13px;
+  border-bottom: 1px solid var(--line);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+.pip-bar:active { cursor: grabbing; }
+#pip[data-dragging="true"] { box-shadow: 0 16px 44px rgba(0, 0, 0, 0.26); }
+
+#pip-title { flex: 1; font-size: 13px; font-weight: 620; letter-spacing: -0.01em; }
+.pip-actions { display: flex; gap: 2px; }
+
+#pip.pip-folded { max-height: none; }
+#pip.pip-folded #results { display: none; }
+#pip.pip-folded .pip-bar { border-bottom: 0; }
+
+/* The card is its own scroll container, so the list cannot push it off-screen. */
+#pip #results { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 6px 0 12px; }
+
+/* Zoom moves out from under the card. */
+#zoom { left: 14px; right: auto; }
+
+@media (max-width: 860px) {
+  #pip { width: auto; left: 14px; right: 14px; }
+}
+
+/* ---------- the E-road plate ----------
+   Copied from the standard sign (Commons "Tabliczka_E40.svg"): a 210x130
+   green field, #007f00, with a white ring inset 3/130 from the edge and the
+   inner field returning to green at 10/130, bold white numerals about 78% of
+   the plate's height, corners rounded at 20/130.  Rendered in CSS rather than
+   as an image so it takes the surrounding font size and stays crisp at any
+   zoom - the ring is a white border with a thin green edge outside it. */
+
+.eroad {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--eroad-green);
+  color: #ffffff;
+  border: 0.13em solid #ffffff;
+  box-shadow: 0 0 0 0.055em var(--eroad-green);
+  border-radius: 0.3em;
+  /* The line box is not the ink box: "E35" has no descender, so centring the
+     box leaves the numerals looking off.  These paddings were chosen by eye
+     against the real sign at large size rather than from font metrics, which
+     disagree with what the glyphs actually do here. */
+  padding: 0.20em 0.34em 0.26em;
+  line-height: 1;
+  font-weight: 700;
+  font-size: 0.92em;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  vertical-align: -0.22em;
+}
+
+:root { --eroad-green: #007f00; }
+
+/* The sign is a fixed colour by law, so on a dark surface it is lifted a
+   little rather than recoloured - the hue has to stay recognisable. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --eroad-green: #0a9b0a; }
+}
+:root[data-theme="dark"] { --eroad-green: #0a9b0a; }
+:root[data-theme="light"] { --eroad-green: #007f00; }
+
+/* Plates carry the number now, so the old blue lettering would fight them. */
+.leg-road { color: inherit; display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.route-roads { display: inline-flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.route-roads .arrow { color: var(--ink-faint); font-weight: 500; }
+.leg-change .eroad { margin: 0 1px; }
+
+/* Room for a plate: it is taller than the bare text it replaced. */
+.leg { grid-template-columns: 66px 1fr; }
+.leg-change { padding-left: 89px; }
+
+/* A route stretch hovered on the map lights its row in the plan, and the row
+   is given a pointer target wider than the 2px stroke so it can be hit. */
+.route-line.hoverable { pointer-events: stroke; stroke-linecap: round; }
+.leg.lit { background: var(--bg); box-shadow: inset 2px 0 0 var(--focus); }

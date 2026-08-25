@@ -1,0 +1,15 @@
+# Derived data. cache/ holds the PBF scan results - 700 MB of way, node and
+# trunk-network caches - which are rebuilt from the source extract, not shipped.
+cache/
+
+# The source data itself is far too large to version (a 34 GB OSM extract) and
+# the AGR text is a UNECE publication, not ours to redistribute.
+data/*.pbf
+data/*.osm.pbf
+data/*.pdf
+
+__pycache__/
+*.pyc
+*.bak
+*.tmp
+*.looseend

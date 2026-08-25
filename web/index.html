@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-Road Corridor Planner</title>
+<link rel="stylesheet" href="style.css?v=20260825232242">
+</head>
+<body>
+<div id="app">
+  <aside id="panel">
+    <header>
+      <div class="titlebar">
+        <h1>E-Road Corridor Planner</h1>
+        <button id="theme" class="icon" type="button" aria-label="Switch between light and dark">
+          <span aria-hidden="true">&#9681;</span>
+        </button>
+        <button id="panel-hide" class="icon" type="button" title="Collapse the sidebar"
+                aria-label="Collapse the sidebar" aria-expanded="true" aria-controls="panel">
+          <span aria-hidden="true">&#171;</span>
+        </button>
+      </div>
+      <p class="subtitle">Routes across Europe using only the international E-road network.</p>
+    </header>
+
+    <div class="controls">
+      <div class="field">
+        <label for="from">From</label>
+        <input id="from" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Start city" aria-describedby="from-help">
+        <div class="suggestions" id="from-list" role="listbox"></div>
+      </div>
+      <div class="field">
+        <label for="to">To</label>
+        <input id="to" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Destination city">
+        <div class="suggestions" id="to-list" role="listbox"></div>
+      </div>
+      <div class="row">
+        <button class="primary" id="plan" disabled>Plan route</button>
+        <button class="ghost" id="swap" title="Swap start and destination">&#8646;</button>
+        <button class="ghost" id="shuffle" title="Plan a random pair of cities">&#127922;</button>
+      </div>
+      <label class="hint"><input type="checkbox" id="shuffle-big" checked>
+        favour larger cities when shuffling</label>
+    </div>
+
+    <div class="controls" style="border-bottom:0;padding-bottom:6px">
+      <div class="field" style="margin-bottom:0">
+        <label for="road-search">Find an E-road</label>
+        <input id="road-search" type="search" autocomplete="off" spellcheck="false"
+               placeholder="e.g. E35">
+        <div class="suggestions" id="road-list" role="listbox"></div>
+      </div>
+    </div>
+
+    <div class="toggles">
+      <label><input type="checkbox" id="show-network"> Full E-road network</label>
+      <label><input type="checkbox" id="show-cities"> Cities</label>
+      <label><input type="checkbox" id="show-tiles"> Detailed basemap</label>
+    </div>
+
+    <div class="legend" id="legend" hidden>
+      <label><input type="checkbox" class="class-toggle" data-cls="ref" checked>
+        <i style="background:var(--slot-1)"></i>reference (E5, E10&hellip;)</label>
+      <label><input type="checkbox" class="class-toggle" data-cls="intermediate" checked>
+        <i style="background:var(--slot-3)"></i>intermediate (E4, E19&hellip;)</label>
+      <label><input type="checkbox" class="class-toggle" data-cls="branch" checked>
+        <i style="background:var(--slot-2)"></i>branch / link (3&#8209;digit)</label>
+    </div>
+
+  </aside>
+
+  <main id="map">
+    <div id="zoom">
+      <button id="zoom-in" title="Zoom in">+</button>
+      <button id="zoom-out" title="Zoom out">&minus;</button>
+      <button id="zoom-reset" title="Reset view">&#8634;</button>
+    </div>
+    <button id="panel-show" type="button" title="Show the sidebar"
+            aria-label="Show the sidebar" aria-expanded="false" aria-controls="panel">
+      <span aria-hidden="true">&#187;</span>
+    </button>
+
+    <section id="pip" hidden aria-labelledby="pip-title">
+      <div class="pip-bar" id="pip-bar">
+        <strong id="pip-title">Route plan</strong>
+        <span class="pip-actions">
+          <button id="pip-collapse" class="icon" type="button" title="Collapse"
+                  aria-label="Collapse the route plan" aria-expanded="true">
+            <span aria-hidden="true">&#8722;</span>
+          </button>
+          <button id="pip-clear" class="icon" type="button" title="Clear this route plan"
+                  aria-label="Clear this route plan">
+            <span aria-hidden="true">&#10005;</span>
+          </button>
+        </span>
+      </div>
+      <div id="results"></div>
+    </section>
+
+    <div id="tooltip"></div>
+    <div id="status">Loading network&hellip;</div>
+    <div id="attribution" style="display:none">Basemap &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a></div>
+  </main>
+</div>
+
+<script src="app.js?v=20260825232242" type="module"></script>
+</body>
+</html>
