@@ -1,6 +1,6 @@
 # E-road network build report
 
-Generated 2026-08-25 23:55.
+Generated 2026-08-26 15:54.
 
 ## 1. Roster
 
@@ -22,25 +22,25 @@ Generated 2026-08-25 23:55.
 
 | measure | count |
 |---|---|
-| crossings attached | 96 |
+| crossings attached | 22 |
 | e road ways | 461,326 |
 | endpoints stitched | 53,642 |
 | ferry landings joined | 114 |
-| legs mirrored | 17,591 |
+| legs mirrored | 17,595 |
 | nodes | 19,814,261 |
 | nodes without coordinates | 0 |
 | orphan fragments dropped | 46 |
 | ramps kept | 185,329 |
 | ramps without roads | 29,679 |
-| road gaps closed | 60 |
+| road gaps closed | 61 |
 | tag refs rejected by class | 790 |
 | tag refs rejected by place | 1,602 |
 | tagging gaps bridged | 150 |
 | treaty crossings joined | 25 |
 
-- Corridors after contraction: **325,693**
-- Interchanges: **6,769**
-- Legs (directed, interchange to interchange): **42,058**
+- Corridors after contraction: **325,588**
+- Interchanges: **6,749**
+- Legs (directed, interchange to interchange): **42,064**
 
 ## 3. Does every road reach the places the treaty says it must?
 
@@ -48,13 +48,13 @@ Annex I names the control cities each E-road has to pass through. This is the co
 
 - Control points in Annex I: **1,815**
 - Matched to a real settlement: **1,310** (72.2%)
-- Reached by their own road: **1,281** (97.8% of matched)
+- Reached by their own road: **1,282** (97.9% of matched)
 
 ### Roads that miss control cities
 
 | road | km of geometry | control points | unreached | which |
 |---|---|---|---|---|
-| E25 | 4,890 | 33 | 3 | Bastia, Porto Vecchio, Bonifacio |
+| E25 | 5,491 | 33 | 2 | Porto Vecchio, Bonifacio |
 | E49 | 1,278 | 11 | 2 | Halle, Schönberg |
 | E71 | 2,335 | 10 | 2 | Bihać, Knin |
 | E806 | 185 | 4 | 2 | Castelo Branco, Guarda |
@@ -62,48 +62,48 @@ Annex I names the control cities each E-road has to pass through. This is the co
 | E87 | 3,594 | 27 | 2 | Marinka, Havza |
 | E018 | 0 | 4 | 1 | Uspenka |
 | E11 | 1,249 | 4 | 1 | Montpellier |
-| E15 | 8,879 | 22 | 1 | Newcastle |
-| E18 | 4,224 | 17 | 1 | Newcastle |
+| E15 | 8,699 | 22 | 1 | Newcastle |
+| E18 | 4,199 | 17 | 1 | Newcastle |
 | E36 | 441 | 4 | 1 | Legnica |
 | E40 | 7,205 | 54 | 1 | Rostov-ná-Donu |
 | E462 | 656 | 4 | 1 | Kraków |
-| E47 | 760 | 8 | 1 | Farø |
-| E55 | 6,815 | 40 | 1 | Farø |
+| E47 | 771 | 8 | 1 | Farø |
+| E55 | 7,249 | 40 | 1 | Farø |
 | E59 | 1,145 | 7 | 1 | Praha |
 | E591 | 0 | 2 | 1 | Novorossiysk |
 | E772 | 323 | 3 | 1 | Jablanica |
-| E80 | 12,930 | 54 | 1 | Izmir |
+| E80 | 12,431 | 54 | 1 | Izmir |
 | E881 | 1,303 | 6 | 1 | Izmit |
-| E90 | 11,283 | 43 | 1 | Aksaray |
+| E90 | 11,593 | 43 | 1 | Aksaray |
 | E902 | 449 | 3 | 1 | Málaga |
 
-26 gap areas were swept by tag to look for untagged or unrelated geometry.
+25 gap areas were swept by tag to look for untagged or unrelated geometry.
 
 ## 4. Repairs and rejections
 
 - Loops back to the same interchange, discarded as not being journeys: **0** (these are normal - a path round an interchange's own ramps)
-- Legs rejected as doubling back, meaning two interchanges that should have been merged into one: **735**
+- Legs rejected as doubling back, meaning two interchanges that should have been merged into one: **842**
 
 | road | km | from jx | to jx |
 |---|---|---|---|
-| E67 | 315 | 4005 | 3989 |
-| E05 | 298 | 407 | 285 |
-| E90 | 285 | 3381 | 3342 |
-| E05 | 285 | 407 | 1083 |
-| E05 | 282 | 407 | 661 |
-| E70 | 282 | 407 | 661 |
-| E01 | 282 | 117 | 118 |
-| E01 | 281 | 117 | 118 |
-| E05 | 273 | 407 | 1107 |
-| E05 | 269 | 407 | 1083 |
-| E70 | 269 | 407 | 1083 |
-| E05 | 257 | 407 | 1107 |
-| E70 | 257 | 407 | 1107 |
-| E105 | 244 | 6687 | 4984 |
-| E77 | 224 | 4891 | 4890 |
+| E25 | 1025 | 3910 | 6146 |
+| E25 | 1018 | 3910 | 3878 |
+| E25 | 1004 | 3910 | 3877 |
+| E25 | 1002 | 3910 | 6153 |
+| E25 | 1002 | 6153 | 3910 |
+| E25 | 607 | 488 | 3910 |
+| E25 | 607 | 488 | 3910 |
+| E25 | 606 | 488 | 3910 |
+| E25 | 606 | 488 | 3910 |
+| E25 | 606 | 488 | 3910 |
+| E25 | 606 | 488 | 3910 |
+| E25 | 606 | 488 | 3910 |
+| E25 | 605 | 488 | 3910 |
+| E25 | 605 | 488 | 3910 |
+| E25 | 604 | 488 | 3910 |
 
 - Interchange cluster radius: median 1.40 km, 95th 2.50 km, max 4.12 km
-- Interchanges with no city within 25 km (shown by coordinate): **138**
+- Interchanges with no city within 25 km (shown by coordinate): **136**
 
 ## 5. Can every pair of cities be linked with at most 3 changes?
 
@@ -113,15 +113,15 @@ Annex I names the control cities each E-road has to pass through. This is the co
 
 | road changes | pairs | share |
 |---|---|---|
-| 0 | 46,029 | 5.84% |
-| 1 | 345,663 | 43.86% |
-| 2 | 325,150 | 41.26% |
-| 3 | 67,256 | 8.53% |
-| 4 | 3,921 | 0.50% |
+| 0 | 45,937 | 5.83% |
+| 1 | 345,989 | 43.90% |
+| 2 | 325,101 | 41.25% |
+| 3 | 67,075 | 8.51% |
+| 4 | 3,917 | 0.50% |
 | 5 | 120 | 0.02% |
 | 6 | 1 | 0.00% |
 
-**4,042 pairs need more than 3 changes** (0.51% of all pairs).
+**4,038 pairs need more than 3 changes** (0.51% of all pairs).
 
 Examples:
 
@@ -164,5 +164,5 @@ Every city is keyed by its OSM node id and shown with its country, because these
 | file | size |
 |---|---|
 | cities.json | 0.24 MB |
-| network.json | 14.03 MB |
+| network.json | 13.69 MB |
 

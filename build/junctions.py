@@ -43,6 +43,12 @@ def haversine_km(a: tuple[float, float], b: tuple[float, float]) -> float:
     return 2 * EARTH_RADIUS_KM * math.asin(min(1.0, math.sqrt(h)))
 
 
+# A sea crossing is a straight line, so a leg that includes one and still runs
+# far longer than the gap it spans is not a crossing - it is a road detour that
+# happens to pass a port.
+FERRY_DETOUR_LIMIT = 2.5
+
+
 @dataclass
 class Interchange:
     id: int
@@ -459,10 +465,19 @@ class RoadNetwork:
         the leg is enormously longer than the gap it closes.  Such a leg is
         never a real journey, and leaving it in lets the router "travel" 700 km
         to arrive where it started.
+
+        A leg that puts to sea is held to a much tighter standard, because a
+        boat sails straight: a genuine crossing is barely longer than the gap
+        it spans.  Folkestone to Ashford came out at 139 km for a 20 km gap -
+        out along the A20 and back - and because it swallowed the Channel
+        crossing on the way it was drawn heading off to France and returning,
+        which reads on the map as another crossing that does not exist.
         """
         start = self.interchanges[leg.start]
         end = self.interchanges[leg.end]
         direct = haversine_km((start.lat, start.lon), (end.lat, end.lon))
+        if getattr(leg, "ferry", False):
+            return leg.km > max(15.0, direct * FERRY_DETOUR_LIMIT)
         return leg.km > max(30.0, direct * 8.0)
 
     def mirror_missing_legs(self) -> int:
