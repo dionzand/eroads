@@ -751,6 +751,42 @@ function wireZoom(svg, root, width, height) {
   };
 }
 
+/* How much of the map the plan card is sitting on, in viewBox units.
+
+   The card is not a panel beside the map, it is over it, so fitting a route to
+   the whole viewport puts half of it underneath the card - on a phone the sheet
+   covers the bottom 60% and the route was framed as if it did not exist.  The
+   card docks to a different edge depending on the layout: a sheet across the
+   bottom on a phone, a column on the right on a desktop or a landscape phone.
+   Rather than encode that, measure which edge it actually hugs. */
+function cardInsets() {
+  const none = { top: 0, right: 0, bottom: 0, left: 0 };
+  const pip = el("pip");
+  if (!pip || pip.hidden) return none;
+  const card = pip.getBoundingClientRect();
+  const map = el("map").getBoundingClientRect();
+  if (!card.width || !card.height || !map.width || !map.height) return none;
+
+  const box = layers.svg.viewBox.baseVal;
+  const perX = box.width / map.width;
+  const perY = box.height / map.height;
+  const inset = { ...none };
+
+  if (card.width >= map.width * 0.8) {
+    /* Spans the width: it is a sheet, and only one edge of it is in the map. */
+    if (card.top - map.top > map.bottom - card.bottom) {
+      inset.bottom = Math.max(0, map.bottom - card.top) * perY;
+    } else {
+      inset.top = Math.max(0, card.bottom - map.top) * perY;
+    }
+  } else if (card.left - map.left > map.right - card.right) {
+    inset.right = Math.max(0, map.right - card.left) * perX;
+  } else {
+    inset.left = Math.max(0, card.right - map.left) * perX;
+  }
+  return inset;
+}
+
 function focusOn(points) {
   if (!points.length) return;
   const box = layers.svg.viewBox.baseVal;
@@ -760,16 +796,29 @@ function focusOn(points) {
     minX = Math.min(minX, x); maxX = Math.max(maxX, x);
     minY = Math.min(minY, y); maxY = Math.max(maxY, y);
   }
+
+  /* Fit into the part of the map nobody is standing on, and centre there. */
+  const inset = cardInsets();
   const pad = 60;
+  const width = Math.max(120, box.width - inset.left - inset.right);
+  const height = Math.max(120, box.height - inset.top - inset.bottom);
   const k = Math.min(MAX_ZOOM, Math.max(0.8,
-    Math.min((box.width - pad) / Math.max(maxX - minX, 1),
-             (box.height - pad) / Math.max(maxY - minY, 1))));
+    Math.min((width - pad) / Math.max(maxX - minX, 1),
+             (height - pad) / Math.max(maxY - minY, 1))));
   state.view = {
     k,
-    x: box.width / 2 - ((minX + maxX) / 2) * k,
-    y: box.height / 2 - ((minY + maxY) / 2) * k,
+    x: inset.left + width / 2 - ((minX + maxX) / 2) * k,
+    y: inset.top + height / 2 - ((minY + maxY) / 2) * k,
   };
   applyView();
+}
+
+/* Re-frame the route currently shown, after the card's size has changed. */
+function refitActiveRoute() {
+  const route = state.routes[state.activeRoute];
+  if (!route) return;
+  const points = route.steps.flatMap(stepPoints);
+  if (points.length) focusOn(points);
 }
 
 function showTooltip(event, text) {
@@ -1075,6 +1124,10 @@ function wireControls() {
   el("pip-clear").addEventListener("click", clearRoutes);
   el("pip-collapse").addEventListener("click", () => {
     foldPip(!el("pip").classList.contains("pip-folded"));
+    /* Collapsing the card hands back most of the screen; expanding it takes
+       that back. Either way the route wants re-framing for the space it now
+       has, after the CSS transition has settled. */
+    setTimeout(refitActiveRoute, 60);
   });
   el("plan").addEventListener("click", planRoute);
   el("shuffle").addEventListener("click", shuffle);
