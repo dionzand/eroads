@@ -236,10 +236,28 @@ button.ghost {
   padding: 11px 13px;
   cursor: pointer;
   display: grid;
-  grid-template-columns: 8px 1fr auto;
+  grid-template-columns: 8px 1fr auto auto;
   gap: 10px;
   align-items: center;
 }
+
+/* Expanding and selecting are different intentions and now have different
+   controls: the card body picks the route, this collapses it without
+   giving the selection up. */
+.route-toggle {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: none;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.route-toggle:hover { color: var(--ink); border-color: var(--ink-faint); }
 
 .route > summary::-webkit-details-marker { display: none; }
 
@@ -702,8 +720,17 @@ button.icon:hover { color: var(--ink); border-color: var(--ink-faint); }
   #scrim { display: block; }
   #app.panel-collapsed #scrim { opacity: 0; pointer-events: none; }
 
-  /* The drawer tab has to clear the drawer itself when it is open. */
-  #panel-show { display: flex; }
+  /* The drawer tab has to clear the drawer itself when it is open - and sit
+     well above the bottom sheet, which reaches over half way up the screen and
+     had the tab landing squarely on the route text. */
+  #panel-show {
+    display: flex;
+    /* Pinned near the top rather than centred: the bottom sheet reaches well
+       over half way up, so a tab at 50% landed on the route text.  A fixed
+       offset stays clear however tall the sheet grows. */
+    top: 88px;
+    transform: none;
+  }
   #app:not(.panel-collapsed) #panel-show { opacity: 0; pointer-events: none; }
 
   /* The plan becomes a bottom sheet.  Dragging a card around a phone screen

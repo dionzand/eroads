@@ -1235,7 +1235,8 @@ function renderRoutes(elapsed) {
       "</span><br><span class='route-why'>" + escapeHtml(route.why) + "</span></span>" +
       "<span class='route-stats'><b>" + Math.round(route.km).toLocaleString() +
       " km</b><span>" + route.changes +
-      (route.changes === 1 ? " change" : " changes") + "</span></span>";
+      (route.changes === 1 ? " change" : " changes") + "</span></span>" +
+      "<button type='button' class='route-toggle' tabindex='-1' aria-hidden='true'></button>";
     details.appendChild(summary);
 
     const legs = document.createElement("div");
@@ -1293,14 +1294,29 @@ function renderRoutes(elapsed) {
     });
     details.appendChild(legs);
 
-    summary.addEventListener("click", () => {
+    /* The browser's own disclosure toggle fought the selection: clicking the
+       route you were already reading collapsed it, and clicking another left
+       two expanded at once.  Selecting and expanding are driven here instead -
+       picking a route opens it and closes the others, and the chevron collapses
+       one without giving up the selection. */
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (event.target.closest(".route-toggle")) {
+        details.open = !details.open;
+        markActiveRoute();
+        return;
+      }
+      showOnlyRoute(index);
       state.activeRoute = index;
       state.focusLeg = null;
       markActiveRoute();
-      setTimeout(drawRoutes, 0);
+      drawRoutes();
     });
     box.appendChild(details);
   });
+
+  /* Give every chevron its sign now the cards exist. */
+  markActiveRoute();
 
   if (elapsed !== undefined) {
     const note = document.createElement("p");
@@ -1458,10 +1474,18 @@ function wireRoadSearch() {
   input.addEventListener("blur", () => setTimeout(() => { list.innerHTML = ""; }, 120));
 }
 
+function showOnlyRoute(index) {
+  for (const card of el("results").querySelectorAll(".route")) {
+    card.open = Number(card.dataset.index) === index;
+  }
+}
+
 function markActiveRoute() {
   for (const card of el("results").querySelectorAll(".route")) {
     card.dataset.active = Number(card.dataset.index) === state.activeRoute
       ? "true" : "false";
+    const toggle = card.querySelector(".route-toggle");
+    if (toggle) toggle.textContent = card.open ? "−" : "+";
   }
 }
 
