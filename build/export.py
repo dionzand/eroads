@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import collections
 import json
+import math
 from datetime import date
 from pathlib import Path
 
@@ -41,6 +42,12 @@ SIMPLIFY_DEGREES = 0.003
 # made the full network feel laggy.  Route lines keep the finer tolerance:
 # there are only ever a handful of them on screen.
 NET_SIMPLIFY_DEGREES = 0.008
+
+# A run shorter than this draws no visible line at any zoom the map allows -
+# 60 m is a sixth of a pixel at maximum zoom - but round line caps still draw
+# its two ends, and a zero-length run draws a filled dot.  Shipping them costs
+# payload and, once zoomed in, scatters blobs over every interchange.
+MIN_DRAW_METRES = 60.0
 PRECISION = 10_000   # four decimal places, about 11 m
 
 
@@ -68,6 +75,18 @@ def encode_line(points: list[tuple[float, float]]) -> list[int]:
         out.append(x - previous_lon)
         previous_lat, previous_lon = y, x
     return out
+
+
+def _span_metres(points: list[tuple[float, float]]) -> float:
+    """Rough length of a polyline, enough to tell a stub from a road."""
+    total = 0.0
+    for (lat1, lon1), (lat2, lon2) in zip(points, points[1:]):
+        dy = (lat2 - lat1) * 111320.0
+        dx = (lon2 - lon1) * 111320.0 * math.cos(math.radians(lat1))
+        total += math.hypot(dx, dy)
+        if total >= MIN_DRAW_METRES:
+            break
+    return total
 
 
 def simplify(points: list[tuple[float, float]],
@@ -185,7 +204,7 @@ def road_chains(network) -> dict[str, list[list[tuple[float, float]]]]:
                 nodes = joined
 
             points = _points(network.coords, nodes)
-            if len(points) >= 2:
+            if len(points) >= 2 and _span_metres(points) >= MIN_DRAW_METRES:
                 out.append(points)
         chains[road] = out
     return chains

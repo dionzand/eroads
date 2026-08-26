@@ -96,6 +96,29 @@ function decodeLine(encoded) {
   return points;
 }
 
+/* A corridor shorter than this contributes no visible line at any zoom the map
+   allows - 60 m is a sixth of a pixel at maximum zoom - but it still draws two
+   round line caps, and a zero-length one draws a filled dot.  Six thousand of
+   the drawn runs have both ends at the same point and another three thousand
+   are under 50 m, mostly stubs between the junction vertices of one
+   interchange.  Zoomed out they hide under real road; zoomed in they separate
+   into a scatter of blobs, thickest over exactly the junctions a reader is
+   trying to look at. */
+const MIN_DRAW_METRES = 60;
+
+function longEnoughToDraw(points) {
+  if (points.length < 2) return false;
+  let metres = 0;
+  for (let i = 0; i < points.length - 1; i++) {
+    const [lat1, lon1] = points[i], [lat2, lon2] = points[i + 1];
+    const dy = (lat2 - lat1) * 111320;
+    const dx = (lon2 - lon1) * 111320 * Math.cos(lat1 * D2R);
+    metres += Math.hypot(dx, dy);
+    if (metres >= MIN_DRAW_METRES) return true;
+  }
+  return false;
+}
+
 function pathOf(points) {
   let d = "";
   for (let i = 0; i < points.length; i++) {
@@ -502,7 +525,10 @@ function buildNetworkLayer() {
 
   for (const road of order) {
     let d = "";
-    for (const line of byRoad.get(road)) d += pathOf(line);
+    for (const line of byRoad.get(road)) {
+      if (!longEnoughToDraw(line)) continue;
+      d += pathOf(line);
+    }
     if (!d) continue;
     const line = node("path", { class: "network-line " + roadClass(road), d });
     const hit = node("path", { class: "network-hit", d });

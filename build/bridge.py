@@ -312,24 +312,43 @@ def bridge_tagging_gaps(ways: dict, coords, bridges: list,
     return joined
 
 
+# A port is not always the control city the treaty names - E5 sails from
+# Portsmouth where Annex I says Southampton, 26 km away - so the match allows
+# some slack, but not enough to reach the next port along.
+SEA_LINK_REACH_KM = 55.0
+
+# The slack also has to be small next to the crossing itself.  Dover and Calais
+# are 42 km apart, so a fixed 55 km put *both* shores within reach of any point
+# in Kent and the two ends stopped meaning anything: Folkestone to Ashford was
+# accepted by reading Folkestone as the Calais side.  Half the span is the most
+# that can still tell one shore from the other.
+SEA_LINK_REACH_FRACTION = 0.45
+SEA_LINK_REACH_FLOOR_KM = 8.0
+
+
 def attach_crossings(ways: dict, coords, crossings: list,
-                     roster: dict, chains: dict, make_crossing) -> list[tuple]:
+                     sea_links: dict, make_crossing) -> list[tuple]:
     """Give a car-carrying crossing the number of the road whose sea link it spans.
 
-    The treaty says where a road crosses water; OSM says where the boats and
-    shuttles run.  Where those agree - the crossing's two ends sit either side
-    of the road's own sea link - the crossing is that road, whatever its tags
-    say.  This is what puts the Channel Tunnel on E15.
+    The treaty says where a road crosses water and *between which two places*;
+    OSM says where the boats and shuttles run.  Where those agree - one end of
+    the crossing near one named place, the other end near the other - the
+    crossing is that road, whatever its tags say.  This is what puts the Channel
+    Tunnel on E15.
 
-    Both sides are large: 9 384 car-carrying crossings against roads whose
-    pieces run to hundreds of thousands of nodes.  Comparing every crossing end
-    to every sampled road point is a few billion distance calculations, so each
-    piece goes into a KD-tree once and every crossing is asked about at once.
+    The earlier rule only asked whether the two ends were near two *different*
+    pieces of the road, which sounds equivalent and is not.  A fragmented road
+    has pieces everywhere, so the test passed on things that cross no sea the
+    treaty knows about: nine crossings ended up on E15, among them Folkestone to
+    Ashford and Boulogne to Calais - neither of which leaves its own country -
+    and nine commuter ferries around the Bosphorus were adopted onto E80,
+    including a Kadikoy-to-Kadikoy round trip.  E70 acquired a 1 132 km line
+    from Varna straight to Georgia, when Annex I sails it only as far as Samsun.
+    Matching against the named endpoints says what was meant all along.
     """
-    if not crossings:
+    if not crossings or not sea_links:
         return []
 
-    # Crossing endpoints, resolved once for all roads.
     kept, end_a, end_b = [], [], []
     for record in crossings:
         nodes = record[1]
@@ -341,50 +360,36 @@ def attach_crossings(ways: dict, coords, crossings: list,
         end_b.append(last)
     if not kept:
         return []
-    query_a = _ecef([p[0] for p in end_a], [p[1] for p in end_a])
-    query_b = _ecef([p[0] for p in end_b], [p[1] for p in end_b])
+
+    near_a = _ecef([p[0] for p in end_a], [p[1] for p in end_a])
+    near_b = _ecef([p[0] for p in end_b], [p[1] for p in end_b])
 
     attached: list[tuple] = []
-    for road_id, road in sorted(roster.items()):
-        chain = chains.get(road_id)
-        if not chain or "sea" not in road.get("links", []):
-            continue
+    for road_id, pairs in sorted(sea_links.items()):
+        for here, there in pairs:
+            side_one = _ecef([here[0]], [here[1]])[0]
+            side_two = _ecef([there[0]], [there[1]])[0]
+            span = haversine_km(here, there)
+            reach = max(SEA_LINK_REACH_FLOOR_KM,
+                        min(SEA_LINK_REACH_KM, SEA_LINK_REACH_FRACTION * span))
+            to_one_a = np.linalg.norm(near_a - side_one, axis=1)
+            to_two_a = np.linalg.norm(near_a - side_two, axis=1)
+            to_one_b = np.linalg.norm(near_b - side_one, axis=1)
+            to_two_b = np.linalg.norm(near_b - side_two, axis=1)
+            # Either end may be the near shore, so both orientations count.
+            accept = (((to_one_a <= reach) & (to_two_b <= reach))
+                      | ((to_two_a <= reach) & (to_one_b <= reach)))
 
-        pieces = _components({w.id: w for w in ways.values() if road_id in w.roads})
-        if len(pieces) < 2:
-            continue
-
-        near_a, near_b = [], []
-        for piece in pieces[:6]:
-            points = _piece_points(coords, piece)
-            if points is None:
-                continue
-            tree = cKDTree(points)
-            near_a.append(tree.query(query_a)[0])
-            near_b.append(tree.query(query_b)[0])
-        if len(near_a) < 2:
-            continue
-
-        near_a = np.vstack(near_a)
-        near_b = np.vstack(near_b)
-        # Spanning a break means the two ends land on *different* pieces of the
-        # road.  Counting how many pieces are within reach is not the same test
-        # and is too weak: near Dover both sides of the Channel are inside 60 km
-        # of each other, so a short hop along the Kent coast satisfied it and was
-        # adopted onto E15.  Requiring the nearest piece to differ says exactly
-        # what is meant - this end is on one side of the gap, that end the other.
-        accept = ((near_a.min(axis=0) <= CROSSING_REACH_KM)
-                  & (near_b.min(axis=0) <= CROSSING_REACH_KM)
-                  & (near_a.argmin(axis=0) != near_b.argmin(axis=0)))
-
-        for index in np.flatnonzero(accept):
-            record = kept[int(index)]
-            existing = ways.get(record[0])
-            if existing is not None:
-                existing.roads = existing.roads | {road_id}
-            else:
-                ways[record[0]] = make_crossing(record, {road_id})
-            attached.append((road_id, record[2] or "unnamed",
-                             round(haversine_km(end_a[int(index)],
-                                                end_b[int(index)]), 1)))
+            for index in np.flatnonzero(accept):
+                record = kept[int(index)]
+                existing = ways.get(record[0])
+                if existing is not None:
+                    if road_id in existing.roads:
+                        continue
+                    existing.roads = existing.roads | {road_id}
+                else:
+                    ways[record[0]] = make_crossing(record, {road_id})
+                attached.append((road_id, record[2] or "unnamed",
+                                 round(haversine_km(end_a[int(index)],
+                                                    end_b[int(index)]), 1)))
     return attached

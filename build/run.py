@@ -68,6 +68,39 @@ def expected_chains(roster: dict, city_index) -> dict[str, list]:
     return chains
 
 
+def sea_link_endpoints(roster: dict, city_index) -> dict[str, list]:
+    """Where the treaty actually puts each road's sea crossing.
+
+    Annex I does not merely say a road has a sea link, it says between which
+    two places - "Dover ... Calais", "Pescara ... Dubrovnik".  Matching a ferry
+    against those two points is a far stronger test than asking whether it
+    happens to touch two pieces of the road, which is what let commuter ferries
+    across the Bosphorus onto E80 and a Black Sea crossing onto E70.
+
+    The resolved chain drops control points that could not be geocoded, so the
+    pairing is done by name rather than by index.
+    """
+    out: dict[str, list] = {}
+    for road_id, road in roster.items():
+        names = road.get("points", [])
+        links = road.get("links", [])
+        if "sea" not in links:
+            continue
+        located = {p.name: (p.lat, p.lon)
+                   for p in coverage_module.resolve_chain(names, city_index)
+                   if p.lat is not None}
+        pairs = []
+        for index, link in enumerate(links):
+            if link != "sea" or index + 1 >= len(names):
+                continue
+            here, there = located.get(names[index]), located.get(names[index + 1])
+            if here and there:
+                pairs.append((here, there))
+        if pairs:
+            out[road_id] = pairs
+    return out
+
+
 def treaty_meetings(expected: dict[str, list]) -> list[tuple[str, str, float, float]]:
     """Road pairs the AGR says share a control city, with where that is.
 
@@ -88,7 +121,7 @@ def treaty_meetings(expected: dict[str, list]) -> list[tuple[str, str, float, fl
     return meetings
 
 
-def stage_graph(roster: dict, expected: dict | None = None,
+def stage_graph(roster: dict, expected: dict | None = None, sea_links: dict | None = None,
                 places: list | None = None):
     """Build the corridor graph, the interchanges and the legs."""
     log("loading ways from the PBF scan")
@@ -145,8 +178,8 @@ def stage_graph(roster: dict, expected: dict | None = None,
 
         log("matching car crossings to the sea links they span")
         attached = bridge_module.attach_crossings(
-            ways, coords, extra.get("crossings", []), roster,
-            expected or {}, make_crossing)
+            ways, coords, extra.get("crossings", []),
+            sea_links or {}, make_crossing)
         stats["crossings_attached"] = len(attached)
         log("  %d crossings attached" % len(attached))
         for record in attached[:6]:
@@ -253,6 +286,8 @@ def main(stages: list[str]) -> None:
     log("  %d settlements" % len(all_cities))
     log("resolving AGR control chains for tag validation")
     expected = expected_chains(roster, index)
+    sea_links = sea_link_endpoints(roster, index)
+    log("  %d roads have a sea link the treaty places" % len(sea_links))
     log("  %d roads have a located chain" % len(expected))
 
     # Cities that will be selectable, so each can be given a node on the road
@@ -263,7 +298,7 @@ def main(stages: list[str]) -> None:
                     | control)
     log("  %d places to anchor" % len(places))
 
-    network, roads_network, stats = stage_graph(roster, expected, places)
+    network, roads_network, stats = stage_graph(roster, expected, sea_links, places)
     all_cities, index, coverage, access, selectable = stage_cities(
         network, roads_network, roster, countries, all_cities, index)
 
