@@ -97,14 +97,15 @@ function decodeLine(encoded) {
 }
 
 /* A corridor shorter than this contributes no visible line at any zoom the map
-   allows - 60 m is a sixth of a pixel at maximum zoom - but it still draws two
+   allows - 300 m is about a pixel at maximum zoom, and anything shorter
+   is rounded away to a single point by the path encoder anyway - but it still draws two
    round line caps, and a zero-length one draws a filled dot.  Six thousand of
    the drawn runs have both ends at the same point and another three thousand
    are under 50 m, mostly stubs between the junction vertices of one
    interchange.  Zoomed out they hide under real road; zoomed in they separate
    into a scatter of blobs, thickest over exactly the junctions a reader is
    trying to look at. */
-const MIN_DRAW_METRES = 60;
+const MIN_DRAW_METRES = 300;
 
 function longEnoughToDraw(points) {
   if (points.length < 2) return false;

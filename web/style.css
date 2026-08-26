@@ -318,7 +318,14 @@ button.ghost {
 .network-line {
   fill: none;
   stroke-width: 1.9px;
-  stroke-linecap: round;
+  /* Butt, not round.  `pathOf` rounds coordinates to a tenth of a map unit and
+     a map unit is about 2.7 km, so any run under ~270 m collapses to a single
+     point - and a round cap draws that as a filled dot.  Three and a half
+     thousand of them scattered over the network at high zoom.  With butt caps
+     a zero-length run draws nothing at all, whatever the rounding does, and on
+     a 1.9px line the squared-off ends are invisible.  Joins stay round so real
+     corners are still smooth. */
+  stroke-linecap: butt;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
   opacity: 0.85;

@@ -44,10 +44,11 @@ SIMPLIFY_DEGREES = 0.003
 NET_SIMPLIFY_DEGREES = 0.008
 
 # A run shorter than this draws no visible line at any zoom the map allows -
-# 60 m is a sixth of a pixel at maximum zoom - but round line caps still draw
+# 300 m is about a pixel at maximum zoom, and anything shorter
+   is rounded away to a single point by the path encoder anyway - but round line caps still draw
 # its two ends, and a zero-length run draws a filled dot.  Shipping them costs
 # payload and, once zoomed in, scatters blobs over every interchange.
-MIN_DRAW_METRES = 60.0
+MIN_DRAW_METRES = 300.0
 PRECISION = 10_000   # four decimal places, about 11 m
 
 
